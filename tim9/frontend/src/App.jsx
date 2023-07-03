@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { MenuCard, TestimoniCard } from './components/Card';
+import Home from './pages/customer/Home';
+import Product from './pages/customer/Product';
 function App() {
   // login state
   const [isLogin, setIsLogin] = React.useState(false);
@@ -13,31 +15,21 @@ function App() {
   const handleUser = (id) => setUser(id);
   
   return (
-    <div>
-      <Header />
-      <Footer />
-      <div className='grid grid-cols-3 gap-5'>
-        <MenuCard />
-        <MenuCard />
-        <MenuCard />
-      </div>
-      <div className='grid grid-cols-3 gap-5 mt-10'>
-        <TestimoniCard />
-        <TestimoniCard />
-        <TestimoniCard />
-      </div>
-    </div>
-    // <Router>
-    //   {!isLogin ? (
-    //     <>
+    <Router>
+      {!isLogin ? (
+        <>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/product' element={<Product />} />
+        </Routes>
 
-    //     </>
-    //   ) : (
-    //     <>
+        </>
+      ) : (
+        <>
           
-    //     </>
-    //   )}
-    // </Router>
+        </>
+      )}
+    </Router>
   );
 }
 

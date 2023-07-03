@@ -9,7 +9,7 @@ const footer = () => {
           <img src={Logo} alt="" className="justify-start" />
         </div>
         <div>
-          <p className="text-[#00FF74] font-medium">Discovery</p>
+          <p className="text-emerald-300 font-semibold">Discovery</p>
           <ul className="mt-3 flex flex-col gap-3">
             <li className="text-white">New Season</li>
             <li className="text-white">Most Searched</li>
@@ -17,7 +17,7 @@ const footer = () => {
           </ul>
         </div>
         <div>
-          <p className="text-[#00FF74] font-medium">About</p>
+          <p className="text-emerald-300 font-medium">About</p>
           <ul className="mt-3 flex flex-col gap-3">
             <li className="text-white">Help</li>
             <li className="text-white">Shipping</li>
@@ -25,7 +25,7 @@ const footer = () => {
           </ul>
         </div>
         <div>
-          <p className="text-[#00FF74] font-medium">Info</p>
+          <p className="text-emerald-300 font-medium">Info</p>
           <ul className="mt-3 flex flex-col gap-3">
             <li className="text-white">Contact Us</li>
             <li className="text-white">Privacy Policies</li>

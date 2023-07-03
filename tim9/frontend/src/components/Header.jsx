@@ -2,9 +2,11 @@ import React from "react";
 import UserImg from "../assets/img/logo-usr.svg";
 const Header = () => {
   return (
-    <div className="flex justify-between px-10 py-2 border-b-2 items-center mt-2">
-      <div className="flex justify-center items-center">
-        <img src={UserImg} alt="" className="" />
+    <div className="flex justify-between px-10 py-2 items-center mt-2">
+      <div className="flex gap-3 justify-center items-center">
+        <div className="w-10 aspect-square rounded-full overflow-hidden">
+          <img src={UserImg} alt="" className="w-full h-full object-cover" />
+        </div>
         <p className="font-bold">Shiren!</p>
       </div>
       <ul className="flex gap-8">
