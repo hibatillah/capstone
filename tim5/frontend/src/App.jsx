@@ -1,6 +1,7 @@
 import * as React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { DashboardAdmin, Stock, Supplier, Order } from "./pages/admin";
+import { DashboardSupplier, Activity } from "./pages/supplier";
 import { Login } from "./pages";
 import { Sidebar } from "./components";
 
@@ -17,7 +18,7 @@ function App() {
     <Router>
       {!isLogin ? (
         <Routes>
-          <Route path="/" element={<Login handleLogin={handleLogin} />} />
+          <Route path="/" element={<Login handleLogin={handleLogin} handleUser={handleUser} />} />
         </Routes>
       ) : (
         <div className="w-full h-screen flex">
@@ -32,7 +33,10 @@ function App() {
                 <Route path="/order" element={<Order />} />
               </>
             ) : (
-              <></>
+              <>
+                <Route path="/" element={<DashboardSupplier />} />
+                <Route path="/activity" element={<Activity />} />
+              </>
             )}
           </Routes>
         </div>
