@@ -16,9 +16,6 @@ import Produk from "./scenes/produk";
 // import FAQ from "./scenes/faq";
 // import Calender from "./scenes/Calender"
 
-
-
-
 function App() {
   const [theme, colorMode] = useMode();
   return (

@@ -1,26 +1,43 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
-import Header from "../../components/Header";
-import { ScoreCard } from "../../components/Card";
-
-
 const Dashboard = () => {
   return (
-    <Box m="20px">
-      {/* HEADER */}
-      <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-      </Box>
-       {/* score card */}
-       <div className="col-start-3 col-span-1 row-span-2 space-y-4 pt-9">
-        <ScoreCard title="5000" desc="Produk Terjual" />
-        <ScoreCard title="250" desc="Total Ulasan" />
-        <ScoreCard title="20" desc="Stok Frozen Food" />
-        <ScoreCard title="10" desc="Pesanan Tersedia" />
+    <div style={styles.container}>
+      <div style={styles.grid3}>
+        <div style={styles.colSpan}>
+          <div style={[styles.scoreCard, { backgroundColor: "#ffb275" }]}></div>
+        </div>
+        <div style={styles.colSpan}>
+          <div style={[styles.scoreCard, { backgroundColor: "#1388fc" }]}></div>
+        </div>
+        <div style={styles.colSpan}>
+          <div style={[styles.scoreCard, { backgroundColor: "#52ec96" }]}></div>
+        </div>
       </div>
-      {/* riwayat pesanan */}
-    </Box>
+    </div>
   );
 };
 
+const styles = {
+  container: {
+    paddingBlock: "20px",
+    paddingInline: "20px",
+    height: "90vh",
+  },
+  grid3: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr",
+    gridGap: "20px",
+    height: "100%",
+  },
+  colSpan: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+  },
+  scoreCard: {
+    width: "100%",
+    height: "200px",
+    borderRadius: "12px",
+  },
+};
 
 export default Dashboard;
