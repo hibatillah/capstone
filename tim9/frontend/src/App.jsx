@@ -21,11 +21,11 @@ import Permintaan from "./pages/supplier/Permintaan";
 import Form from "./pages/supplier/Form";
 function App() {
   // login state
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
-  const [user, setUser] = React.useState("supplier");
+  const [user, setUser] = React.useState("admin");
   const handleUser = (id) => setUser(id);
 
   return (
