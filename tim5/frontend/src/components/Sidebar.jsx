@@ -7,7 +7,8 @@ const Sidebar = ({ activeUser }) => {
   const menu = {
     admin: [
       ["Dashboard", "/"],
-      ["Stock", "/stock"],
+      ["Materials", "/materials"],
+      ["Products", "/products"],
       ["Supplier", "/supplier"],
       ["Order", "/order"],
     ],
@@ -15,15 +16,11 @@ const Sidebar = ({ activeUser }) => {
       ["Dashboard", "/"],
       ["Activity", "/activity"],
     ],
-    stock: [
-      ["Materials", "/materials"],
-      ["Products", "/products"]
-    ]
   };
   const [activeMenu, setActiveMenu] = React.useState();
 
   return (
-    <aside className="flex-none px-8 py-5 flex flex-col gap-16 bg-white">
+    <aside className="flex-none h-screen px-8 py-5 flex flex-col gap-16 bg-white">
       <img src={logo} alt="logo" className="w-52" />
       <ul className="flex flex-col gap-2">
         {menu[activeUser].map(([page, path], i) => (
@@ -39,7 +36,9 @@ const Sidebar = ({ activeUser }) => {
                   switch (page) {
                     case 'Dashboard':
                       return <Square />
-                    case 'Stock':
+                    case 'Products':
+                      return <Stock />
+                    case 'Materials':
                       return <Stock />
                     case 'Supplier':
                       return <User />

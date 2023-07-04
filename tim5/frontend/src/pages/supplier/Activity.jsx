@@ -1,13 +1,13 @@
-import React from "react";
-import { formatCurrency } from "../../components/format";
-import { Status } from "../../components";
+import React from 'react'
+import { formatCurrency } from '../../components/format';
+import { Status } from '../../components';
 
-const Order = () => {
-  const data = [];
-
+const Activity = () => {
+  const data = []
+  
   return (
     <main className="flex flex-col">
-      <h1>Order List</h1>
+      <h1>Stock Real Time</h1>
       <div className="mt-5 space-y-5">
         <div className="card">
           <div className="flex justify-between">
@@ -17,8 +17,8 @@ const Order = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Customer</th>
-                <th>Product</th>
+                <th>Company</th>
+                <th>Material</th>
                 <th>Qty</th>
                 <th>Price (Rp)</th>
                 <th>Action</th>
@@ -28,8 +28,8 @@ const Order = () => {
               {data.map((item, i) => (
                 <tr key={i}>
                   <td>{item._id ?? "-"}</td>
-                  <td>{item.customer ?? "-"}</td>
-                  <td>{item.product ?? "-"}</td>
+                  <td>{item.company ?? "-"}</td>
+                  <td>{item.material ?? "-"}</td>
                   <td>{item.amount ?? "-"}</td>
                   <td>{formatCurrency(item.price) ?? "-"}</td>
                   <td>
@@ -50,8 +50,8 @@ const Order = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Customer</th>
-                <th>Product</th>
+                <th>Company</th>
+                <th>Material</th>
                 <th>Qty</th>
                 <th>Status</th>
                 <th>Price (Rp)</th>
@@ -62,8 +62,8 @@ const Order = () => {
               {data.map((item, i) => (
                 <tr key={i}>
                   <td>{item._id ?? "-"}</td>
-                  <td>{item.customer ?? "-"}</td>
-                  <td>{item.product ?? "-"}</td>
+                  <td>{item.company ?? "-"}</td>
+                  <td>{item.material ?? "-"}</td>
                   <td>{item.amount ?? "-"}</td>
                   <td>{item.status ?? "-"}</td>
                   <td>{formatCurrency(item.price) ?? "-"}</td>
@@ -78,6 +78,6 @@ const Order = () => {
       </div>
     </main>
   );
-};
+}
 
-export default Order;
+export default Activity

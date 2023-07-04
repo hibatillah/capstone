@@ -4,6 +4,51 @@
 
 @layer base {
   body {
-    @apply bg-primary-100
+    @apply bg-primary-100;
+  }
+  main {
+    @apply min-h-[calc(100vh-110px)];
+  }
+  h1 {
+    @apply text-2xl font-bold text-gray-800;
+  }
+  h2 {
+    @apply text-xl font-bold text-primary;
+  }
+  h3 {
+    @apply text-lg font-semibold text-gray-700;
+  }
+  table {
+    @apply w-full table-auto min-h-[300px];
+  }
+  table thead th {
+    @apply pb-2 font-semibold text-left text-gray-700;
+  }
+  table tbody td {
+    @apply py-1.5 font-medium text-left text-gray-600;
+  }
+  hr {
+    @apply my-4
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow-md p-4;
+  }
+  .btn {
+    @apply px-4 py-2 rounded-full font-semibold cursor-pointer;
+  }
+  .btn-primary {
+    @apply bg-primary text-white active:ring-1 active:ring-primary active:ring-offset-2;
+  }
+  .btn-cancel {
+    @apply bg-secondary text-white active:ring-1 active:ring-secondary active:ring-offset-2;
+  }
+  .btn-secondary {
+    @apply bg-inherit text-primary border border-primary active:bg-primary active:text-white;
+  }
+  .form {
+    @apply px-3 py-2 rounded-lg border border-gray-600 focus:outline-none
   }
 }
