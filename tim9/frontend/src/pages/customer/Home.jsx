@@ -87,7 +87,7 @@ const Home = () => {
               </svg>
               <p>Handmade: Semua bahan di sediakan dengan penuh hati</p>
             </div>
-            <button className="bg-button px-10 py-2 rounded-lg mt-8 text-white">
+            <button className="bg-buttonSecondary px-10 py-2 rounded-lg mt-8 text-white">
               Learn More
             </button>
           </div>

@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import { MenuCard, TestimoniCard } from './components/Card';
 import Home from './pages/customer/Home';
 import Product from './pages/customer/Product';
+import Cart from './pages/customer/Cart';
 function App() {
   // login state
   const [isLogin, setIsLogin] = React.useState(false);
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/product' element={<Product />} />
+          <Route path='/cart' element={<Cart />} />
         </Routes>
 
         </>
