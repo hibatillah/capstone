@@ -6,6 +6,7 @@ import { MenuCard, TestimoniCard } from './components/Card';
 import Home from './pages/customer/Home';
 import Product from './pages/customer/Product';
 import Cart from './pages/customer/Cart';
+import Payment from './pages/customer/Payment';
 function App() {
   // login state
   const [isLogin, setIsLogin] = React.useState(false);
@@ -23,6 +24,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/product' element={<Product />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/payment' element={<Payment />} />
         </Routes>
 
         </>

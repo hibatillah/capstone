@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CartItem from "../../components/CartItem";
 import Menu1 from "../../assets/img/menu1.png";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   return (
@@ -33,9 +34,9 @@ const Cart = () => {
           <p>Tax and shipping cost will be calculated later</p>
         </div>
         <p className="">Rp.25.000</p>
-        <button className="bg-buttonSecondary px-10 py-1 rounded-lg text-white">
+        <Link to={"/payment"} className="bg-buttonSecondary px-10 py-2 rounded-lg text-white">
           Checkout
-        </button>
+        </Link>
       </div>
       <Footer />
     </div>
