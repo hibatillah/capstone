@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  #payment::-webkit-scrollbar {
+    @apply w-0 bg-none;
+  }
+  table thead th {
+    @apply pb-2 font-medium
+     text-left text-slate-500;
+  }
+  table tbody td {
+    @apply py-1.5 font-medium text-left text-slate-800;
+  }
+  table {
+    @apply table-auto w-full
+  }
+}
