@@ -1,24 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Header, Sidebar } from "./components";
+import { DashboardAdmin, Order, Report, Product } from "./pages/admin";
+import { DashboardSupplier } from "./pages/supplier";
+import { DashboardGuest, Detail, About } from "./pages/guest";
+import { Login } from "./pages";
 
 function App() {
+  // login handle
+  const [isLogin, setIsLogin] = React.useState(true);
+  const handleLogin = () => setIsLogin(!isLogin);
+
+  // user handle
+  const [user, setUser] = React.useState("admin");
+  const handleUser = (user) => setUser(user);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {!isLogin ? (
+        <Login handleLogin={handleLogin} />
+      ) : (
+        <div className="h-screen">
+          {user === "admin" ? (
+            <div className="flex">
+              <Sidebar handleLogin={handleLogin} user={user} />
+              <div className="flex-auto h-screen overflow-y-scroll">
+                <Routes>
+                  <Route path="/" element={<DashboardAdmin />} />
+                  <Route path="/order" element={<Order />} />
+                  <Route path="/report" element={<Report />} />
+                  <Route path="/product" element={<Product />} />
+                </Routes>
+              </div>
+            </div>
+          ) : user === "supplier" ? (
+            <div className="flex">
+              <div className="flex-auto h-screen overflow-y-scroll">
+                <Routes>
+                  <Route path="/" element={<DashboardSupplier />} />
+                </Routes>
+              </div>
+            </div>
+          ) : (
+            <div className="">
+              <Header />
+              <Routes>
+                <Route path="/" element={<DashboardGuest />} />
+                <Route path="/detail" element={<Detail />} />
+                <Route path="/about" element={<About />} />
+              </Routes>
+            </div>
+          )}
+        </div>
+      )}
+    </Router>
   );
 }
 

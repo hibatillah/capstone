@@ -141,14 +141,14 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
               />
               <Item
                 title="Bahan Baku"
-                to="/contacts"
+                to="/material"
                 icon={<InventoryOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Transaksi"
-                to="/invoices"
+                to="/order"
                 icon={<ReceiptOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}

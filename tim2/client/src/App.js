@@ -1,12 +1,15 @@
-
+import * as React from "react";
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import Topbar from  "./scenes/global/Topbar";
-import Sidebar from './scenes/global/Sidebar';
+import Topbar from "./scenes/global/Topbar";
+import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
+import DashboardSupplier from "./scenes/dashboard/Supplier";
 import Produk from "./scenes/produk";
+import Material from "./scenes/material";
+import { Home, Header, About } from "./scenes/guest";
 // import Invoices from "./scenes/Invoices";
 // import Contacts from "./scenes/contats";
 // import Bar from "./scenes/bar";
@@ -17,29 +20,56 @@ import Produk from "./scenes/produk";
 // import Calender from "./scenes/Calender"
 
 function App() {
+  // theme state
   const [theme, colorMode] = useMode();
+
+  // login state
+  const [isLogin, setIsLogin] = React.useState(true);
+
+  // user state
+  const [user, setUser] = React.useState("guest");
+
   return (
     <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme  = {theme}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
-    <div className="app">
-      <Sidebar />
-      <main className="content">
-        <Topbar />
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/produk" element={<Produk />} /> 
-          {/* <Route path="/contacts" element={<Contacts />} />
-          <Route path="/invoices" element={<Invoices />} />
-          <Route path="/form" element={<Form />} />
-          <Route path="/bar" element={<Bar />} />
-          <Route path="/pie" element={<Pie />} />
-          <Route path="/line" element={<Line />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/calender" element={<Calender />} /> */} */
-        </Routes>
-      </main>
-      </div>
+          {!isLogin ? (
+            <>
+              {/* <Login /> */}
+            </>
+          ) : user === "admin" ? (
+            <>
+              <Sidebar />
+              <main className="content">
+                <Topbar />
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/produk" element={<Produk />} />
+                </Routes>
+              </main>
+            </>
+          ) : user === "supplier" ? (
+            <>
+              <Sidebar />
+              <main className="content">
+                <Topbar />
+                <Routes>
+                  <Route path="/" element={<DashboardSupplier />} />
+                  <Route path="/produk" element={<Produk />} />
+                  <Route path="/material" element={<Material />} />
+                </Routes>
+              </main>
+            </>
+          ) : (
+            <>
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/produk" element={<Produk />} />
+                <Route path="/about" element={<About />} />
+              </Routes>
+            </>
+          )}
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

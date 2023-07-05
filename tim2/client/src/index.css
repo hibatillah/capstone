@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-  
+  body {
+    @apply bg-[#e8e9eb];
+  }
 }
 
 @layer components {
@@ -17,6 +19,7 @@
     height: 100%;
     width: 100%;
     font-family: "Source Sans Pro", sans-serif;
+    background-color: #e8e9eb;
   }
 
   .app {
@@ -41,5 +44,40 @@
   /*Handle on Hover*/
   ::-webkit-scrollbar-track:hover {
     background: #555;
+  }
+  .card {
+    width: 100%;
+    min-height: 300px;
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 20px
+  }
+  .card-2 {
+    @apply bg-white flex-auto rounded-lg h-40 flex flex-col justify-center items-center gap-2 p-4
+
+  }
+  .status {
+    @apply px-2 py-1 rounded-full bg-inherit border border-gray-700 w-fit
+  }
+  th {
+    @apply text-left
+  }
+  h1 {
+    @apply text-5xl font-bold
+  }
+  h3 {
+    @apply text-xl font-semibold
+  }
+  table {
+    @apply table-auto w-full
+  }
+  .btn {
+    @apply px-4 py-2 rounded-xl font-medium
+  }
+  .btn-primary {
+    @apply bg-gray-800 text-white
+  }
+  .btn-secondary {
+    @apply bg-inherit text-gray-800 border border-gray-800
   }
 }
