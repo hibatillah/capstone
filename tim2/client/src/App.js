@@ -10,6 +10,9 @@ import DashboardSupplier from "./scenes/dashboard/Supplier";
 import Produk from "./scenes/produk";
 import Material from "./scenes/material";
 import { Home, Header, About } from "./scenes/guest";
+import Product from "./scenes/guest/Product";
+import Detailproduct from "./scenes/guest/Detailproduct";
+import Supplier from "./scenes/supplier";
 // import Invoices from "./scenes/Invoices";
 // import Contacts from "./scenes/contats";
 // import Bar from "./scenes/bar";
@@ -27,7 +30,7 @@ function App() {
   const [isLogin, setIsLogin] = React.useState(true);
 
   // user state
-  const [user, setUser] = React.useState("guest");
+  const [user, setUser] = React.useState("supplier");
 
   return (
     <ColorModeContext.Provider value={colorMode}>
@@ -37,8 +40,8 @@ function App() {
             <>
               {/* <Login /> */}
             </>
-          ) : user === "admin" ? (
-            <>
+          ) : (user === "admin" ? (
+            <div className="flex">
               <Sidebar />
               <main className="content">
                 <Topbar />
@@ -47,9 +50,9 @@ function App() {
                   <Route path="/produk" element={<Produk />} />
                 </Routes>
               </main>
-            </>
+            </div>
           ) : user === "supplier" ? (
-            <>
+            <div className="flex">
               <Sidebar />
               <main className="content">
                 <Topbar />
@@ -57,19 +60,21 @@ function App() {
                   <Route path="/" element={<DashboardSupplier />} />
                   <Route path="/produk" element={<Produk />} />
                   <Route path="/material" element={<Material />} />
+                  <Route path="/supplier" element={<Supplier />} />
                 </Routes>
               </main>
-            </>
+            </div>
           ) : (
             <>
               <Header />
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/produk" element={<Produk />} />
+                <Route path="/product" element={<Product />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/detailproduct" element={<Detailproduct />} />
               </Routes>
             </>
-          )}
+          ))}
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

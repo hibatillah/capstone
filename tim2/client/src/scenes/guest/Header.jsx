@@ -5,12 +5,12 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   const menu = [
     ["Home", "/"],
-    ["About", "/about"],
     ["Product", "/product"],
+    ["About", "/about"],
   ];
 
   return (
-    <div className="flex justify-between items-center px-10">
+    <div className="flex justify-between items-center px-10 bg-white">
       <img src={logo} alt="logo" className="w-20" />
       <ul className="flex gap-12">
         {menu.map(([page, path], i) => (

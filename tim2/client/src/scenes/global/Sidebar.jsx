@@ -163,7 +163,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
               </Typography>
               <Item
                 title="Supplier"
-                to="/form"
+                to="/supplier"
                 icon={<PersonOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
