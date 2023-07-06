@@ -17,7 +17,7 @@ function App() {
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
-  const [activeUser, setActiveUser] = React.useState("admin");
+  const [activeUser, setActiveUser] = React.useState("customer");
   const handleUser = (id) => setActiveUser(id);
 
   // notif state
