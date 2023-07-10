@@ -6,7 +6,7 @@ const Notifikasi = ({ handleNotif }) => {
       <h3>Notifikasi</h3>
       <div
         onClick={handleNotif}
-        className="p-1 mr-4 rounded bg-primary-100 hover:bg-primary-200 cursor-pointer"
+        className="p-1 rounded bg-primary-100 hover:bg-primary-200 cursor-pointer"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

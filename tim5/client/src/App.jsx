@@ -13,11 +13,11 @@ import { Sidebar, Profile, Notifikasi, ModalContent, Header } from "./components
 
 function App() {
   // login state
-  const [isLogin, setIsLogin] = React.useState(false);
+  const [isLogin, setIsLogin] = React.useState(true);
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
-  const [activeUser, setActiveUser] = React.useState("customer");
+  const [activeUser, setActiveUser] = React.useState("supplier");
   const handleUser = (id) => setActiveUser(id);
 
   // notif state
@@ -75,7 +75,7 @@ function App() {
           </div>
           {/* notifikasi */}
           <div
-            className={`absolute top-0 ${
+            className={`fixed top-0 ${
               notifActive ? "right-0" : "-right-full"
             } p-8 bg-white shadow-lg h-screen w-72 transition-all duration-300`}
           >
