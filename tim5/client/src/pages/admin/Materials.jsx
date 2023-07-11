@@ -15,38 +15,68 @@ const Materials = ({ handleModal }) => {
       <h1>Materials</h1>
       <div className="mt-5 card">
         <div className="flex justify-between">
-          <h2>All Materials</h2>
+          <h2>Daftar Bahan Baku</h2>
           <div className="flex gap-4">
-            <div onClick={() => handleModal('request material')} className="btn btn-primary">Request Stock</div>
-            <div onClick={() => handleModal('add material')} className="btn btn-primary">Add Material</div>
+            <div
+              onClick={() => handleModal("request material")}
+              className="btn btn-primary"
+            >
+              Request Stock
+            </div>
+            <div
+              onClick={() => handleModal("add material")}
+              className="btn btn-primary"
+            >
+              Add Material
+            </div>
           </div>
         </div>
         <table className="mt-5">
           <thead>
             <tr>
-              <th>Material</th>
-              <th>Price (Rp)</th>
-              <th>Minimum Stock</th>
-              <th>In Stock</th>
-              <th>Action</th>
+              <th>Bahan Baku</th>
+              <th>Stok Minimum</th>
+              <th>Stok Tersedia</th>
+              <th>Satuan</th>
+              <th>Status</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
             {data.map((item, i) => (
               <tr key={i}>
                 <td>
-                  <img src={imgItem[item.name]} alt={item.name} />
-                  <span className="ml-4">{item.name}</span>
+                  <img src={imgItem[item.nama]} alt={item.nama} />
+                  <span className="ml-4">{item.nama}</span>
                 </td>
-                <td>{formatCurrency(item.price) ?? "-"}</td>
                 <td>{item.minimum ?? "-"}</td>
-                <td className="flex flex-col gap-1">
-                  {item.instock ?? 0}
-                  {item.instock <= item.minimum ? (
-                    <span className="text-red-500">Stock at minimum level</span>
-                  ) : null}
+                <td>{item.stok ?? "-"}</td>
+                <td>{item.satuan ?? "-"}</td>
+                <td>
+                  {item.stok <= item.minimum ? (
+                    <span className="w-16 text-secondary">
+                      Stok berada di level minimum
+                    </span>
+                  ) : (
+                    "-"
+                  )}
                 </td>
-                <td></td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                    />
+                  </svg>
+                </td>
               </tr>
             ))}
           </tbody>
