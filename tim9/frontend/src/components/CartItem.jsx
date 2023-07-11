@@ -10,7 +10,7 @@ const CartItem = ({ img, product, harga, total }) => {
         </div>
         <div>
             <p>{product}</p>
-            <p className="text-emerald-500 underline">Remove</p>
+            <p className="text-emerald-500 underline">hapus</p>
         </div>
         <p>{harga}</p>
         <div className="flex gap-2 border-2 w-16 justify-center border-emerald-500">

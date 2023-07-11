@@ -19,13 +19,14 @@ import SidebarSupplier from "./components/SidebarSupplier";
 import BahanBaku from "./pages/supplier/BahanBaku";
 import Permintaan from "./pages/supplier/Permintaan";
 import Form from "./pages/supplier/Form";
+import History from "./pages/customer/History";
 function App() {
   // login state
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
-  const [user, setUser] = React.useState("supplier");
+  const [user, setUser] = React.useState("guest");
   const handleUser = (id) => setUser(id);
 
   return (
@@ -45,17 +46,14 @@ function App() {
             <Route path="/product" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/payment" element={<Payment />} />
+            <Route path="/history" element={<History />} />
           </Routes>
         </>
       ) : (
         <div className="w-full h-screen flex">
-          {user === "admin" ? (
-            <Sidebar user={user} />
-          ):(<SidebarSupplier />)}
+          {user === "admin" ? <Sidebar user={user} /> : <SidebarSupplier />}
           <div className="flex-auto h-screen overflow-y-scroll bg-[#f5f5f5]">
-            {user === "admin" ? (
-              <HeaderAdmin />
-            ):(<HeaderSupplier />)}
+            {user === "admin" ? <HeaderAdmin /> : <HeaderSupplier />}
             <Routes>
               {user === "admin" ? (
                 <>
@@ -65,19 +63,23 @@ function App() {
                   <Route path="/calender" element={<Calender />} />
                   <Route path="/product" element={<DataProduct />} />
                 </>
-              ) :user === "supplier"? (
+              ) : user === "supplier" ? (
                 <>
-                <Route path="/dashboard-suplier" element={<DashboardSupplier />} />
-                <Route path="/bahanbaku" element={<BahanBaku />} />
-                <Route path="/permintaan" element={<Permintaan />} />
-                <Route path="/form" element={<Form />} />
+                  <Route
+                    path="/dashboard-suplier"
+                    element={<DashboardSupplier />}
+                  />
+                  <Route path="/bahanbaku" element={<BahanBaku />} />
+                  <Route path="/permintaan" element={<Permintaan />} />
+                  <Route path="/form" element={<Form />} />
                 </>
-              ): (
+              ) : (
                 <>
-                  {/* <Route path="/" element={<Beranda />} />
-                  <Route path="/menu" element={<Menu />} />
-                  <Route path="/pesanan" element={<PesananSaya />} />
-                  <Route path="/tentang" element={<TentangKami />} /> */}
+                  <Route path="/" element={<Home />} />
+                  <Route path="/product" element={<Product />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/payment" element={<Payment />} />
+                  <Route path="/history" element={<History />} />
                 </>
               )}
             </Routes>

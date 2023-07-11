@@ -10,13 +10,13 @@ const Cart = () => {
     <div>
       <Header />
       <div className="flex flex-col justify-center items-center py-14">
-        <p className="text-4xl font-medium">Your cart items</p>
-        <p className="text-[#56B280] textl-xl underline">Back to shopping</p>
+        <p className="text-4xl font-medium">KeranjangKu</p>
+        <p className="text-[#56B280] textl-xl underline">Kembali</p>
       </div>
       <div className="px-16">
         <div className="grid grid-cols-5">
-          <p className="ml-8">Prouduct</p>
-          <p className="col-start-3">Price</p>
+          <p className="ml-8">Nama Prouduct</p>
+          <p className="col-start-3">Harga Satuan</p>
           <p>Quantity</p>
           <p>Total</p>
         </div>

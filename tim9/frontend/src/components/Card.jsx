@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { Star } from "./Svg";
 
 export const MenuCard = ({ img, menu, desc }) => {
@@ -9,9 +10,9 @@ export const MenuCard = ({ img, menu, desc }) => {
         <p className="font-bold text-xl">{menu}</p>
         <p className="text-[#333333]">{desc}</p>
       </div>
-      <button className="px-10 py-2 rounded-xl bg-button absolute -bottom-5 left-1/2 -translate-x-1/2 text-white">
+      <NavLink className="px-10 py-2 rounded-xl bg-button absolute -bottom-5 left-1/2 -translate-x-1/2 text-white" to={"/product"}>
         Order Now
-      </button>
+      </NavLink>
     </div>
   );
 };
