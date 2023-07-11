@@ -6,15 +6,16 @@ import { Square, Order, Stock, User } from "./Icon";
 const Sidebar = ({ activeUser }) => {
   const menu = {
     admin: [
-      ["Dashboard", "/"],
-      ["Materials", "/materials"],
-      ["Products", "/products"],
-      ["Supplier", "/supplier"],
-      ["Order", "/order"],
+      ["Beranda", "/"],
+      ["Bahan Baku", "/materials"],
+      ["Produk", "/products"],
+      ["Pemasok", "/supplier"],
+      ["Pesanan", "/order"],
     ],
     supplier: [
-      ["Dashboard", "/"],
-      ["Activity", "/activity"],
+      ["Beranda", "/"],
+      ["Aktivitas", "/activity"],
+      ["Stok", "/stok"],
     ],
   };
   const [activeMenu, setActiveMenu] = React.useState();
@@ -34,25 +35,27 @@ const Sidebar = ({ activeUser }) => {
               <div className={`px-4 py-2 rounded-md font-medium flex items-center gap-3 ${activeMenu === page? 'bg-primary-100 text-primary' : 'bg-inherit text-slate-500'}`}>
                 {activeUser === "admin" ? (() => {
                   switch (page) {
-                    case 'Dashboard':
+                    case 'Beranda':
                       return <Square />
-                    case 'Products':
+                    case 'Produk':
                       return <Stock />
-                    case 'Materials':
+                    case 'Bahan Baku':
                       return <Stock />
-                    case 'Supplier':
+                    case 'Pemasok':
                       return <User />
-                    case 'Order':
+                    case 'Pesanan':
                       return <Order />
                     default:
                       return null
                   }
                 })() : (() => {
                   switch (page) {
-                    case 'Dashboard':
+                    case 'Beranda':
                       return <Square />
-                    case 'Activity':
+                    case 'Aktivitas':
                       return <User />
+                      case 'Stok':
+                      return <Stock />
                     default: 
                       return null
                   }

@@ -16,22 +16,24 @@ const Order = () => {
           <table className="mt-5">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Customer</th>
-                <th>Product</th>
-                <th>Qty</th>
-                <th>Price (Rp)</th>
-                <th>Action</th>
+                <th>ID Transaksi</th>
+                <th>Produk</th>
+                <th>Jumlah</th>
+                <th>Harga (Rp)</th>
+                <th>Pembayaran</th>
+                <th>Tipe Pesanan</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
               {data.map((item, i) => (
                 <tr key={i}>
                   <td>{item._id ?? "-"}</td>
-                  <td>{item.customer ?? "-"}</td>
-                  <td>{item.product ?? "-"}</td>
-                  <td>{item.amount ?? "-"}</td>
-                  <td>{formatCurrency(item.price) ?? "-"}</td>
+                  <td>{item.produk ?? "-"}</td>
+                  <td>{item.jumlah ?? "-"}</td>
+                  <td>{formatCurrency(item.harga) ?? "-"}</td>
+                  <td>{item.pembayaran ?? "-"}</td>
+                  <td>{item.tipe ?? "-"}</td>
                   <td>
                     <div className="px-2 py-1 text-sm rounded-full bg-secondary text-white">
                       Confirm
@@ -49,27 +51,29 @@ const Order = () => {
           <table className="mt-5">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Customer</th>
-                <th>Product</th>
-                <th>Qty</th>
+                <th>ID Transaksi</th>
+                <th>Produk</th>
+                <th>Jumlah</th>
+                <th>Harga (Rp)</th>
+                <th>Pembayaran</th>
+                <th>Tipe Pesanan</th>
                 <th>Status</th>
-                <th>Price (Rp)</th>
-                <th>Action</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
               {data.map((item, i) => (
                 <tr key={i}>
                   <td>{item._id ?? "-"}</td>
-                  <td>{item.customer ?? "-"}</td>
-                  <td>{item.product ?? "-"}</td>
-                  <td>{item.amount ?? "-"}</td>
-                  <td>{item.status ?? "-"}</td>
-                  <td>{formatCurrency(item.price) ?? "-"}</td>
+                  <td>{item.produk ?? "-"}</td>
+                  <td>{item.jumlah ?? "-"}</td>
+                  <td>{formatCurrency(item.harga) ?? "-"}</td>
+                  <td>{item.pembayaran ?? "-"}</td>
+                  <td>{item.tipe ?? "-"}</td>
                   <td>
                     <Status label={item.status} />
                   </td>
+                  <td>aksi</td>
                 </tr>
               ))}
             </tbody>

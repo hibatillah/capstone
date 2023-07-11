@@ -2,7 +2,7 @@ import React from 'react'
 import { formatCurrency } from '../../components/format';
 import { Status } from '../../components';
 
-const Activity = () => {
+const Activity = ({ handleModal }) => {
   const data = []
   
   return (
@@ -11,16 +11,16 @@ const Activity = () => {
       <div className="mt-5 space-y-5">
         <div className="card">
           <div className="flex justify-between">
-            <h2>Confirmation Orders</h2>
+            <h2>Daftar Pesanan</h2>
           </div>
           <table className="mt-5">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Company</th>
-                <th>Material</th>
-                <th>Qty</th>
-                <th>Price (Rp)</th>
+                <th>ID Transaksi</th>
+                <th>Bahan Baku</th>
+                <th>Jumlah</th>
+                <th>Satuan</th>
+                <th>Harga (Rp)</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -28,13 +28,16 @@ const Activity = () => {
               {data.map((item, i) => (
                 <tr key={i}>
                   <td>{item._id ?? "-"}</td>
-                  <td>{item.company ?? "-"}</td>
-                  <td>{item.material ?? "-"}</td>
-                  <td>{item.amount ?? "-"}</td>
-                  <td>{formatCurrency(item.price) ?? "-"}</td>
+                  <td>{item.nama ?? "-"}</td>
+                  <td>{item.jumlah ?? "-"}</td>
+                  <td>{item.satuan ?? "-"}</td>
+                  <td>{formatCurrency(item.harga) ?? "-"}</td>
                   <td>
-                    <div className="px-2 py-1 text-sm rounded-full bg-secondary text-white">
-                      Confirm
+                    <div
+                      onClick={() => handleModal("send material")}
+                      className="px-2 py-1 text-sm rounded-full bg-secondary text-white"
+                    >
+                      Kirim
                     </div>
                   </td>
                 </tr>
@@ -44,32 +47,32 @@ const Activity = () => {
         </div>
         <div className="card">
           <div className="flex justify-between">
-            <h2>Confirmation Orders</h2>
+            <h2>Riwayat Pesanan</h2>
           </div>
           <table className="mt-5">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Company</th>
-                <th>Material</th>
-                <th>Qty</th>
-                <th>Status</th>
-                <th>Price (Rp)</th>
-                <th>Action</th>
+                <th>ID Transaksi</th>
+                <th>Bahan Baku</th>
+                <th>Jumlah</th>
+                <th>Satuan</th>
+                <th>Harga (Rp)</th>
+                <th>Satuan</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
               {data.map((item, i) => (
                 <tr key={i}>
                   <td>{item._id ?? "-"}</td>
-                  <td>{item.company ?? "-"}</td>
-                  <td>{item.material ?? "-"}</td>
-                  <td>{item.amount ?? "-"}</td>
-                  <td>{item.status ?? "-"}</td>
-                  <td>{formatCurrency(item.price) ?? "-"}</td>
+                  <td>{item.nama ?? "-"}</td>
+                  <td>{item.jumlah ?? "-"}</td>
+                  <td>{item.satuan ?? "-"}</td>
+                  <td>{formatCurrency(item.harga) ?? "-"}</td>
                   <td>
                     <Status label={item.status} />
                   </td>
+                  <td>aksi</td>
                 </tr>
               ))}
             </tbody>

@@ -33,19 +33,19 @@ const DashboardSupplier = () => {
             bg='bg-secondary'
           />
         </div>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-3 gap-5 pb-8">
           <div className="col-span-2 space-y-5">
-            <div className="card min-h-[200px]">
+            <div className="card h-[300px]">
               <h2>Total Request</h2>
 
             </div>
-            <div className="card min-h-[200px]">
+            <div className="card h-[300px]">
               <h2>Total Request Material</h2>
 
             </div>
           </div>
           <div className="col-span-1">
-            <div className="card min-h-[500px]">
+            <div className="card min-h-[620px]">
               <h2>Request Status</h2>
             </div>
           </div>

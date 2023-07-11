@@ -16,7 +16,7 @@ const Products = ({ handleModal }) => {
         <div className="flex justify-between">
           <h2>All Product</h2>
           <div className="flex gap-4">
-            <div onClick={() => handleModal('add product stock')} className="btn btn-primary">Add Stock</div>
+            <div onClick={() => handleModal('make product')} className="btn btn-primary">Make Product</div>
             <div onClick={() => handleModal('add product')} className="btn btn-primary">Add Product</div>
           </div>
         </div>

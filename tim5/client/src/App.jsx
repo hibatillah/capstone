@@ -7,19 +7,24 @@ import {
   Supplier,
   Order,
 } from "./pages/admin";
-import { DashboardSupplier, Activity } from "./pages/supplier";
-import { Home, GuestProducts, GuestOrder } from "./pages/guest";
-import { Login, SignUp } from "./pages";
-import { Sidebar, Profile, Notifikasi, ModalContent, Header } from "./components";
+import { DashboardSupplier, Activity, Stok } from "./pages/supplier";
+import { Home, GuestProducts, GuestOrder, GuestOrderHistory } from "./pages/guest";
+import { Login, SignUp, Notifikasi } from "./pages";
+import {
+  Sidebar,
+  Profile,
+  ModalContent,
+  Header,
+} from "./components";
 import { logo } from "./assets/img";
 
 function App() {
   // login state
-  const [isLogin, setIsLogin] = React.useState(false);
+  const [isLogin, setIsLogin] = React.useState(true);
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
-  const [activeUser, setActiveUser] = React.useState("guest");
+  const [activeUser, setActiveUser] = React.useState("admin");
   const handleUser = (id) => setActiveUser(id);
 
   // notif state
@@ -44,67 +49,64 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
           </Routes>
         </div>
-      ) : (
+      ) : activeUser === "admin" ? (
         <div className="w-full max-h-screen flex relative">
           <Sidebar activeUser={activeUser} />
           <div className="flex-auto h-screen overflow-y-scroll px-8 py-6 flex flex-col gap-5">
             <Profile handleNotif={handleNotif} />
             <Routes>
-              {activeUser === "admin" ? (
-                <>
-                  <Route path="/" element={<DashboardAdmin />} />
-                  <Route
-                    path="/materials"
-                    element={<Materials handleModal={handleModal} />}
-                  />
-                  <Route
-                    path="/products"
-                    element={<Products handleModal={handleModal} />}
-                  />
-                  <Route path="/supplier" element={<Supplier />} />
-                  <Route path="/order" element={<Order />} />
-                </>
-              ) : activeUser === "supplier" ? (
-                <>
-                  <Route path="/" element={<DashboardSupplier />} />
-                  <Route path="/activity" element={<Activity />} />
-                </>
-              ) : (
-                <div className="w-full min-h-screen bg-white">
-                  <Header />
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/product" element={<GuestProducts />} />
-                    <Route path="/order" element={<GuestOrder />} />
-                  </Routes>
-                </div>
-              )}
+              <Route path="/" element={<DashboardAdmin />} />
+              <Route
+                path="/materials"
+                element={<Materials handleModal={handleModal} />}
+              />
+              <Route
+                path="/products"
+                element={<Products handleModal={handleModal} />}
+              />
+              <Route path="/supplier" element={<Supplier />} />
+              <Route path="/order" element={<Order />} />
+              <Route path="/notifikasi" element={<Notifikasi />} />
             </Routes>
           </div>
-          {/* notifikasi */}
-          <div
-            className={`fixed top-0 ${
-              notifActive ? "right-0" : "-right-full"
-            } p-8 bg-white shadow-lg h-screen w-72 transition-all duration-300`}
-          >
-            <Notifikasi handleNotif={handleNotif} />
+        </div>
+      ) : activeUser === "supplier" ? (
+        <div className="w-full max-h-screen flex relative">
+          <Sidebar activeUser={activeUser} />
+          <div className="flex-auto h-screen overflow-y-scroll px-8 py-6 flex flex-col gap-5">
+            <Profile handleNotif={handleNotif} />
+            <Routes>
+              <Route path="/" element={<DashboardSupplier />} />
+              <Route path="/activity" element={<Activity handleModal={handleModal} />} />
+              <Route path="/notifikasi" element={<Notifikasi />} />
+              <Route path="/stok" element={<Stok />} />
+            </Routes>
           </div>
-          {/* modal */}
-          {modalActive ? (
-            <div className="fixed top-0 left-0 bg-black/30 backdrop-blur-sm w-screen h-screen z-20">
-              <div
-                className={
-                  modalActive
-                    ? "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 card p-7 min-w-[25%] min-h-[40%] flex flex-col justify-between z-30"
-                    : "hidden"
-                }
-              >
-                <ModalContent modalForm={modalForm} handleModal={handleModal} />
-              </div>
-            </div>
-          ) : null}
+        </div>
+      ) : (
+        <div className="w-full min-h-screen bg-white">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product" element={<GuestProducts />} />
+            <Route path="/product/order" element={<GuestOrder />} />
+            <Route path="/order" element={<GuestOrderHistory />} />
+          </Routes>
         </div>
       )}
+      {modalActive ? (
+        <div className="fixed top-0 left-0 bg-black/30 backdrop-blur-sm w-screen h-screen z-20">
+          <div
+            className={
+              modalActive
+                ? "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 card p-7 min-w-[25%] min-h-[40%] flex flex-col justify-between z-30"
+                : "hidden"
+            }
+          >
+            <ModalContent modalForm={modalForm} handleModal={handleModal} />
+          </div>
+        </div>
+      ) : null}
     </Router>
   );
 }
