@@ -30,14 +30,6 @@ function App() {
   const handleUser = (id) => setUser(id);
 
   return (
-    // <div className="flex">
-    //   <div>
-    //     <p>ahhahaahha</p>
-    //   </div>
-    //   <div className="flex-auto">
-    //     <HeaderAdmin />
-    //   </div>
-    // </div>
     <Router>
       {!isLogin ? (
         <>
