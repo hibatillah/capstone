@@ -9,15 +9,17 @@ import {
 } from "./pages/admin";
 import { DashboardSupplier, Activity } from "./pages/supplier";
 import { Home, GuestProducts, GuestOrder } from "./pages/guest";
+import { Login, SignUp } from "./pages";
 import { Sidebar, Profile, Notifikasi, ModalContent, Header } from "./components";
+import { logo } from "./assets/img";
 
 function App() {
   // login state
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
-  const [activeUser, setActiveUser] = React.useState("supplier");
+  const [activeUser, setActiveUser] = React.useState("guest");
   const handleUser = (id) => setActiveUser(id);
 
   // notif state
@@ -35,12 +37,11 @@ function App() {
   return (
     <Router>
       {!isLogin ? (
-        <div className="w-full min-h-screen bg-white">
-          <Header />
+        <div className="w-full h-screen relative grid place-items-center">
+          <img src={logo} alt="logo" className="absolute left-5 top-5 w-60" />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/product" element={<GuestProducts />} />
-            <Route path="/order" element={<GuestOrder/>} />
+            <Route path="/" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
           </Routes>
         </div>
       ) : (
@@ -69,7 +70,14 @@ function App() {
                   <Route path="/activity" element={<Activity />} />
                 </>
               ) : (
-                <></>
+                <div className="w-full min-h-screen bg-white">
+                  <Header />
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/product" element={<GuestProducts />} />
+                    <Route path="/order" element={<GuestOrder />} />
+                  </Routes>
+                </div>
               )}
             </Routes>
           </div>

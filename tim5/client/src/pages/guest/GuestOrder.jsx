@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Note from "../../assets/img/notes.png";
 import Miepangsit from "../../assets/img/mie-pangsit.png";
+
 const GuestOrder = () => {
   const [jumlah, setJumlah] = useState(1);
+
   return (
     <div className="grid grid-cols-2 gap-3 px-20 py-10">
       {/* kiri */}
@@ -163,6 +165,9 @@ const GuestOrder = () => {
 
           </div>
         </div>
+      </div>
+      <div className="col-start-2 col-span-1 flex justify-end">
+        <div className="px-4 py-2 rounded-lg bg-secondary text-white  font-medium w-fit">Buat Pesanan</div>
       </div>
     </div>
   );
