@@ -1,16 +1,17 @@
 import React from "react";
 import { CardScore } from "../components/Card";
-import Icon1 from "../assets/img/Icon.png";
+import Icon1 from "../assets/img/bagkuning.png";
+import Icon2 from "../assets/img/backmerah.png";
+import Icon3 from "../assets/img/bagbiru.png";
 export const Dashboard = () => {
     const data = []
   return (
     <div className="px-10 py-7">
       <p>Dashboard</p>
-      <div className="grid grid-cols-4 gap-4 py-5">
-        <CardScore img={Icon1} judul={"172+"} desc={"Favorite Service"} />
-        <CardScore img={Icon1} judul={"172+"} desc={"Favorite Service"} />
-        <CardScore img={Icon1} judul={"172+"} desc={"Favorite Service"} />
-        <CardScore img={Icon1} judul={"172+"} desc={"Favorite Service"} />
+      <div className="grid grid-cols-3 gap-4 py-5">
+        <CardScore img={Icon1} desc={"$126.500"} judul={"Total Orders"} ket={"Up 34%"}/>
+        <CardScore img={Icon2} desc={"$126.500"} judul={"Active Orders"} ket={"Up 34%"}/>
+        <CardScore img={Icon3} desc={"$126.500"} judul={"Total Orders"} ket={"Up 34%"}/>
       </div>
       <div className="grid grid-cols-3 gap-4">
         <div className="bg-white min-h-[350px] col-span-2 px-3 py-4">

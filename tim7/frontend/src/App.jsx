@@ -6,9 +6,16 @@ import { Dashboard } from "./pages/Dashboard";
 import Order from "./pages/Order";
 import DashboardSupplier from "./pages/DashboardSupplier";
 import Home from "./pages/Home";
+import Stock from "./pages/Stock";
+import Adminpendatapan from "./pages/Adminpendatapan";
+import Sidebarsupplier from "./components/Sidebarsupplier";
+import Sidebarcustomer from "./components/Sidebarcustomer";
+import Pemesanan from "./pages/Pemesanan";
+import { Login } from "./pages/Login";
+import Signup from "./pages/Signup";
 function App() {
   // login state
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
@@ -18,24 +25,29 @@ function App() {
     <Router>
       {!isLogin ? (
         <>
-          {/* <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/payment" element={<Payment />} />
-          </Routes> */}
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
         </>
       ) : (
         <div>
           <Header />
           <div className="w-full h-screen flex">
-            <Sidebar />
+            {user === "admin" ? (
+              <Sidebar />
+            ):user === "supplier" ? (
+              <Sidebarsupplier />
+            ) : (
+              <Sidebarcustomer />
+            )}
             <div className="flex-auto h-screen overflow-y-scroll bg-[#f5f5f5]">
               <Routes>
                 {user === "admin" ? (
                   <>
                     <Route path="/" element={<Dashboard />} />
-                    <Route path="/order" element={<Order />} />
+                    <Route path="/pendatapan" element={<Adminpendatapan />} />
+                    <Route path="/stock" element={<Stock />} />
                   </>
                 ) : user === "supplier" ?  (
                   <>
@@ -45,7 +57,7 @@ function App() {
                 ):(
                   <>
                     <Route path="/" element={<Home />} />
-                    <Route path="/order" element={<Order />} />
+                    <Route path="/pemesanan" element={<Pemesanan />} />
                   </>
                 )}
               </Routes>

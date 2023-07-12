@@ -1,7 +1,7 @@
 import React from "react";
 import { Bahanbakucard } from "../components/Card";
 import Telur from "../assets/img/telur.png";
-const DashboardSupplier = () => {
+const Stock = () => {
   const data = [];
   return (
     <div className="px-10 py-4">
@@ -111,6 +111,19 @@ const DashboardSupplier = () => {
         </p>
         <form action="" className="mt-10">
           <div className="grid grid-cols-2 mb-3">
+            <p className="text-xl font-medium">Pilih Supplier</p>
+            <div className="w-full">
+              <input
+                type="text"
+                placeholder="Pilih supplier"
+                id="pilihsupplier"
+                name="pilihsupplier"
+                required
+                className="px-4 py-2 bg-slate-200 rounded-lg focus:outline-none w-full"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-2 mb-3">
             <p className="text-xl font-medium">Pilih Bahan</p>
             <div>
               <input
@@ -147,4 +160,4 @@ const DashboardSupplier = () => {
   );
 };
 
-export default DashboardSupplier;
+export default Stock;
