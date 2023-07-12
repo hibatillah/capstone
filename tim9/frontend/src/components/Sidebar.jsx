@@ -6,15 +6,15 @@ const Sidebar = ({user}) => {
   const Menu = {
     admin: [
       ["Dashboard", "/dashboard"],
-      ["Pesanan", "/pesanan"],
-      ["Supplier", "/supplier"],
-      ["Calender", "/calender"],
       ["Product", "/product"],
+      ["Pesanan Bahan Baku", "/pesanan"],
+      ["Bahan Baku", "/bahanbakuadmin"],
+      ["History Penjualan", "/historypenjualan"],
     ],
     supplier: [
       ["Dashboard", "/dashboard-supplier"],
       ["Bahan Baku", "/bahanbaku"],
-      ["Permintaan", "/permintaan"],
+      ["Orderan", "/orderan"],
     ],
   };
   return (
@@ -35,11 +35,11 @@ const Sidebar = ({user}) => {
                       switch (name) {
                         case "Dashboard":
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
-                        case "Pesanan":
+                        case "Pesanan Bahan Baku":
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
-                        case "Supplier":
+                        case "Bahan Baku":
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
-                        case "Calender":
+                        case "History Penjualan":
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
                         case "Product":
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
@@ -53,7 +53,7 @@ const Sidebar = ({user}) => {
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
                         case "Bahan Baku":
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
-                        case "Permintaan":
+                        case "Orderan":
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
                       }
                     })()}

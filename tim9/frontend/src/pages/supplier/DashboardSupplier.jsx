@@ -1,49 +1,42 @@
 import React from "react";
 
 const DashboardSupplier = () => {
+  const data =[]
   return (
-    <div className="px-20 py-5">
-      <p>Supply Chain Management PT. ABC</p>
-      <div className="grid grid-cols-2 gap-4 mt-10">
-        <div className="bg-white flex ">
-          <div className="bg-[#d4b98f] p-16 flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              class="bi bi-person-fill w-10 h-10"
-              viewBox="0 0 16 16"
-            >
-              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-            </svg>
-          </div>
-          <div>
-            <p>Manufakuter</p>
-            <p>2</p>
-          </div>
-        </div>
-        <div className="bg-white flex ">
-          <div className="bg-[#d4b98f] p-16 flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              class="bi bi-person-fill w-10 h-10"
-              viewBox="0 0 16 16"
-            >
-              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-            </svg>
-          </div>
-          <div>
-            <p>Manufakuter</p>
-            <p>2</p>
-          </div>
-        </div>
+    <div className="px-7">
+      <p className="py-4 text-3xl font-bold text-darkblue text-center">
+        Dashboard
+      </p>
+      <div className="min-h-[300px] px-7 bg-white rounded-lg">
+        <p className="py-4 text-xl font-bold text-darkblue">Hasil Penjualan</p>
       </div>
-      <div className="bg-white aspect-[4/1] mt-10 px-10 py-5">
-        <p className="font-medium">Haloo</p>
-        <div className="bg-[#ff9900] aspect-[4/1] px-10 flex flex-col items-start justify-center text-white">
-            <p className="text-xl font-bold">Selamat Datang</p>
-            <p>Silahkan Kelola Website ini dengan baik dan benar ya</p>
-        </div>
+      <div className="bg-white min-h-[200px] mt-10 px-7">
+        <p className="py-4 text-xl font-bold text-darkblue">
+          Riwayat Pemesanan
+        </p>
+        <table className="table-auto w-full">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Tanggal Penesanan</th>
+              <th>Alamat</th>
+              <th>QTY</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data?.map((item) => (
+              <tr>
+                <td>{item.nama ?? "-"}</td>
+                <td>{item.tanggalpemesanan ?? "-"}</td>
+                <td>{item.alamat ?? 0}</td>
+                <td>{item.jumlah ?? 0}</td>
+                <td>{item.qty ?? 0}</td>
+                <td>{item.total ?? 0}</td>
+              </tr>
+            )) ?? <tr>Produk Tidak tersedia</tr>}
+          </tbody>
+        </table>
       </div>
     </div>
   );

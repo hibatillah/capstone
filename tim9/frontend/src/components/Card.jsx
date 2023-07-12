@@ -3,16 +3,40 @@ import { Star } from "./Svg";
 
 export const MenuCard = ({ img, menu, desc }) => {
   return (
-    <div className="w- flex flex-col items-center px-10 py-10 bg-white rounded-lg shadow-lg relative gap-6 ">
-      <img src={img} alt="" className="w-40 aspect-square bg-contain" />
+    <div className="w-[80%] flex flex-col items-center px-10 py-10 bg-white rounded-lg shadow-lg relative gap-6 ">
+      <div>
+        <img src={img} alt="" className="w-full h-full" />
+      </div>
       <div className="w-full h-px bg-slate-500 px-10"></div>
       <div>
         <p className="font-bold text-xl">{menu}</p>
         <p className="text-[#333333]">{desc}</p>
       </div>
-      <NavLink className="px-10 py-2 rounded-xl bg-button absolute -bottom-5 left-1/2 -translate-x-1/2 text-white" to={"/product"}>
-        Order Now
-      </NavLink>
+      <div className="flex w-[70%] absolute -bottom-5 left-1/2 -translate-x-1/2">
+          <NavLink to={"/product"} className="bg-[#759d7e] px-12 py-2 flex gap-2 items-center justify-center mt-5 rounded-lg text-white stroke-white w-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-cart3"
+              viewBox="0 0 16 16"
+            >
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-plus"
+              viewBox="0 0 16 16"
+            >
+              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+            </svg>
+            Add to cart
+          </NavLink>
+        </div>
     </div>
   );
 };
@@ -54,7 +78,7 @@ export const CardInfo = ({ img, judul, desc }) => {
   );
 };
 
-export const SupplierCard = ({img,nama,desc}) => {
+export const SupplierCard = ({ img, nama, desc }) => {
   return (
     <div className="aspect-[6/5] rounded-lg bg-white flex flex-col gap-4 items-center justify-center">
       <div className="bg-slate-400 w-16 h-16 rounded-full overflow-hidden">

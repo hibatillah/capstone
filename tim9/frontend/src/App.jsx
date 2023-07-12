@@ -20,13 +20,18 @@ import BahanBaku from "./pages/supplier/BahanBaku";
 import Permintaan from "./pages/supplier/Permintaan";
 import Form from "./pages/supplier/Form";
 import History from "./pages/customer/History";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Orderan from "./pages/supplier/Orderan";
+import BahanbakuAdmin from "./pages/admin/BahanbakuAdmin";
+import Historypenjualan from "./pages/admin/Historypenjualan";
 function App() {
   // login state
-  const [isLogin, setIsLogin] = React.useState(false);
+  const [isLogin, setIsLogin] = React.useState(true);
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
-  const [user, setUser] = React.useState("guest");
+  const [user, setUser] = React.useState("admin");
   const handleUser = (id) => setUser(id);
 
   return (
@@ -34,49 +39,48 @@ function App() {
       {!isLogin ? (
         <>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/payment" element={<Payment />} />
-            <Route path="/history" element={<History />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </>
-      ) : (
+      ) : user === "admin" ? (
         <div className="w-full h-screen flex">
-          {user === "admin" ? <Sidebar user={user} /> : <SidebarSupplier />}
+          <Sidebar user={user} />
           <div className="flex-auto h-screen overflow-y-scroll bg-[#f5f5f5]">
-            {user === "admin" ? <HeaderAdmin /> : <HeaderSupplier />}
+            <HeaderAdmin />
             <Routes>
-              {user === "admin" ? (
-                <>
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/pesanan" element={<Pesanan />} />
-                  <Route path="/supplier" element={<Supplier />} />
-                  <Route path="/calender" element={<Calender />} />
-                  <Route path="/product" element={<DataProduct />} />
-                </>
-              ) : user === "supplier" ? (
-                <>
-                  <Route
-                    path="/dashboard-suplier"
-                    element={<DashboardSupplier />}
-                  />
-                  <Route path="/bahanbaku" element={<BahanBaku />} />
-                  <Route path="/permintaan" element={<Permintaan />} />
-                  <Route path="/form" element={<Form />} />
-                </>
-              ) : (
-                <>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/product" element={<Product />} />
-                  <Route path="/cart" element={<Cart />} />
-                  <Route path="/payment" element={<Payment />} />
-                  <Route path="/history" element={<History />} />
-                </>
-              )}
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/pesanan" element={<Pesanan />} />
+              <Route path="/bahanbakuadmin" element={<BahanbakuAdmin />} />
+              <Route path="/historypenjualan" element={<Historypenjualan />} />
+              <Route path="/product" element={<DataProduct />} />
             </Routes>
           </div>
         </div>
+      ) : user === "supplier" ? (
+        <div className="w-full h-screen flex">
+          <Sidebar user={user} />
+          <div className="flex-auto h-screen overflow-y-scroll bg-[#f5f5f5]">
+            <HeaderSupplier />
+            <Routes>
+              <Route
+                path="/dashboard-supplier"
+                element={<DashboardSupplier />}
+              />
+              <Route path="/bahanbaku" element={<BahanBaku />} />
+              <Route path="/orderan" element={<Orderan />} />
+              <Route path="/form" element={<Form />} />
+            </Routes>
+          </div>
+        </div>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/history" element={<History />} />
+        </Routes>
       )}
     </Router>
   );

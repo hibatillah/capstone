@@ -54,7 +54,7 @@ const SidebarSupplier = () => {
           </li>
         </NavLink>
         <NavLink
-          to={"/permintaan"}
+          to={"/order"}
           className={({ isActive }) =>
             isActive
               ? "text-green-500 stroke-green-500"
@@ -63,7 +63,7 @@ const SidebarSupplier = () => {
         >
           <li className="flex  gap-2">
             <img src={DashboardIcon} alt="" className="w-6 h-6" />
-            Permintaan
+            Orderan
           </li>
         </NavLink>
       </ul>

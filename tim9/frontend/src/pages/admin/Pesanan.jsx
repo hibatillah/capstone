@@ -45,25 +45,19 @@ const Pesanan = () => {
           <thead>
             <tr>
               <th>Nama Supplier</th>
-              <th>ID Pemesanan</th>
-              <th>Date</th>
+              <th>Tanggal</th>
               <th>Bahan Baku</th>
-              <th>Alamat</th>
-              <th>Contact</th>
               <th>Status</th>
-              <th>Aksi</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {data?.map((item) => (
               <tr>
                 <td>{item.namasupplier ?? "-"}</td>
-                <td>{item.idpemesanan ?? "-"}</td>
-                <td>{item.date ?? 0}</td>
+                <td>{item.tanggal ?? "-"}</td>
                 <td>{item.bahanbaku ?? "-"}</td>
-                <td>{item.alamat ?? "-"}</td>
-                <td>{item.contact ?? "-"}</td>
-                <td>{}</td>
+                <td>{item.status ?? "-"}</td>
                 <td>{}</td>
               </tr>
             )) ?? <tr>Produk Tidak tersedia</tr>}

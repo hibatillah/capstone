@@ -30,21 +30,11 @@ const PaymentMethod = () => {
           </div>
         </div>
       </div>
-      <div className="mt-3">
-        <p>Alamat</p>
-        <div className="w-full border-2 rounded-lg px-1 mt-2">
-          <input
-            type="text "
-            placeholder="Alamat"
-            className="px-3 py-2 w-full focus:outline-none"
-          />
-        </div>
-      </div>
-      <div className="border p-4 mt-4 rounded-lg">
-        <p>Pembayaran</p>
+      <div className=" p-4 mt-4">
+        <p className="text-lg font-medium mb-5">Pembayaran</p>
         <div className="flex justify-between">
           <label htmlFor="cod" className="">
-            <input type="radio" name="cod" id="cod" className="mr-4 w-4 h-4" />
+            <input type="radio" name="pembayaran" id="cod" className="mr-4 w-4 h-4" />
             COD
             <p className="ml-7 text-sm text-slate-600">
               Pembayaran dengan ditempat
@@ -55,7 +45,7 @@ const PaymentMethod = () => {
           <label htmlFor="Credit/Debit Kartu" className="">
             <input
               type="radio"
-              name="Credit/Debit Kartu"
+              name="pembayaran"
               id="Credit/Debit Kartu"
               className="mr-4 w-4 h-4"
             />
@@ -80,7 +70,7 @@ const PaymentMethod = () => {
           <label htmlFor="Bank" className="">
             <input
               type="radio"
-              name="Bank"
+              name="pembayaran"
               id="Bank"
               className="mr-4 w-4 h-4"
             />
@@ -94,7 +84,7 @@ const PaymentMethod = () => {
           <label htmlFor="E-wallet" className="">
             <input
               type="radio"
-              name="E-wallet"
+              name="pembayaran"
               id="E-wallet"
               className="mr-4 w-4 h-4"
             />
