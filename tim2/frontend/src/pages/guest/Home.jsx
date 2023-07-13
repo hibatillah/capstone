@@ -13,7 +13,7 @@ const Home = () => {
             consequuntur possimus, quasi est dolorem minima quis molestiae
             suscipit aspernatur eos.
           </p>
-          <div className="btn w-fit shadow-md bg-[#e68640] text-gray-800 font-semibold text-lg">
+          <div className="btn w-fit shadow-md bg-[#e68640] text-gray-800 font-semibold text-lg rounded-lg px-3">
             Pelajari Selengkapnya
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import Anginangin from "../../assets/angin.png";
+import Anginangin from "../../assets/img/anginangin.png";
 import { DetailProductCard } from "../../components/Card";
 
 const Detailproduct = () => {

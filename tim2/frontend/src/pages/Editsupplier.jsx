@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Tambahsupplier = () => {
+const Editsupplier = () => {
   return (
     <div className='px-10'>
-        <p className='font-medium py-3'>Detail Supplier</p>
+        <p className='font-medium py-3'>Edit Supplier</p>
         <div className='flex justify-center mt-5'>
             <form action="" className='bg-white rounded-lg w-[80%] px-10 py-5'>
                 <div className='grid grid-cols-2 gap-4 items-center mt-3'>
@@ -28,4 +28,4 @@ const Tambahsupplier = () => {
   )
 }
 
-export default Tambahsupplier
+export default Editsupplier

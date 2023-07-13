@@ -1,11 +1,11 @@
 import React from "react";
 import { ProductCard } from "../../components/Card";
-import Batakosemen from "../../assets/batakosemen.png";
-import Batakocangkang from '../../assets/batakocangkang.png'
-import Anginangin from '../../assets/anginangin.png'
-import Pavingblock from '../../assets/pavingblock.png'
-import Polongan from '../../assets/polongan.png'
-import Tiangsandi from '../../assets/tiangsandi.png'
+import Batakosemen from "../../assets/img/batakosemen.png";
+import Batakocangkang from '../../assets/img/batakocangkang.png'
+import Anginangin from '../../assets/img/anginangin.png'
+import Pavingblock from '../../assets/img/pavingblock.png'
+import Polongan from '../../assets/img/polongan.png'
+import Tiangsandi from '../../assets/img/tiangsandi.png'
 const Product = () => {
   return (
     <div className="px-14 bg-white">

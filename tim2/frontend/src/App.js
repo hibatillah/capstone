@@ -14,9 +14,23 @@ import Tambahtransaksi from "./pages/Tambahtransaksi";
 import Supplier from "./pages/Supplier";
 import Tambahsupplier from "./pages/Tambahsupplier";
 import Riwayat from "./pages/Riwayat";
-// import ProductGuest from "./pages/guest/Product";
-// import Detailproduct from "./pages/guest/Detailproduct";
+import ProductGuest from "../src/pages/guest/Product";
+import Detailproduct from "./pages/guest/Detailproduct";
 // import Sidebaradmin from "./components/Sidebaradmin";
+import Home from "../src/pages/guest/Home";
+import About from "../src/pages/guest/About";
+import Headerguest from "../src/pages/guest/Header";
+import Sidebarsupplier from "./components/Sidebarsupplier";
+import Pengiriman from "./pages/Pengiriman";
+import Tambahpengantaran from "./pages/Tambahpengantaran";
+import Bahanbakusupplier from "./pages/Bahanbakusupplier";
+import Tambahbahanbakusupplier from "./pages/Tambahbahanbakusupplier";
+import Editbahanbakusupplier from "./pages/Editbahanbakusupplier";
+import Riwayatsupplier from "./pages/Riwayatsupplier";
+import Editproduct from "./pages/Editproduct";
+import Editbahanbaku from "./pages/Editbahanbaku";
+import Edittransaksi from "./pages/Edittransaksi";
+import Editsupplier from "./pages/Editsupplier";
 
 function App() {
   const [isLogin, setIsLogin] = React.useState(true);
@@ -44,11 +58,15 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/product" element={<Product />} />
               <Route path="/tambahproduct" element={<Tambahproduct />} />
+              <Route path="/editproduct" element={<Editproduct />} />
               <Route path="/bahanbaku" element={<Bahanbbaku />} />
               <Route path="/tambahbahanbaku" element={<Tambahbahanbaku />} />
+              <Route path="/editbahanbaku" element={<Editbahanbaku />} />
               <Route path="/transaksi" element={<Transaksi />} />
               <Route path="/tambahtransaksi" element={<Tambahtransaksi />} />
+              <Route path="/edittransaksi" element={<Edittransaksi />} />
               <Route path="/supplier" element={<Supplier />} />
+              <Route path="/editsupplier" element={<Editsupplier />} />
               <Route path="/tambahsupplier" element={<Tambahsupplier />} />
               <Route path="/riwayat" element={<Riwayat />} />
             </Routes>
@@ -56,27 +74,30 @@ function App() {
         </div>
       ) : user === "supplier" ? (
         <div className="w-full h-screen flex">
-          {/* <Sidebar user={user} />
-          <div className="flex-auto h-screen overflow-y-scroll bg-[#f5f5f5]">
-            <HeaderSupplier />
+          <Sidebarsupplier />
+          <div className="flex-auto h-screen overflow-y-scroll bg-[#e8e9eb]">
+            <Header />
             <Routes>
-              <Route
-                path="/dashboard-supplier"
-                element={<DashboardSupplier />}
-              />
-              <Route path="/bahanbaku" element={<BahanBaku />} />
-              <Route path="/orderan" element={<Orderan />} />
-              <Route path="/form" element={<Form />} />
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/pengiriman" element={<Pengiriman />} />
+              <Route path="/tambahpengantaran" element={<Tambahpengantaran />} />
+              <Route path="/bahanbakusupplier" element={<Bahanbakusupplier />} />
+              <Route path="/tambahbahanbakusupplier" element={<Tambahbahanbakusupplier />} />
+              <Route path="/editbahanbakusupplier" element={<Editbahanbakusupplier />} />
+              <Route path="/riwayatsupplier" element={<Riwayatsupplier />} />
             </Routes>
-          </div> */}
+          </div>
         </div>
       ) : (
-        <Routes>
-          {/* <Route path="/" element={<Home />} />
-          <Route path="/product" element={<ProductGuest />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/detailproduct" element={<Detailproduct />} /> */}
-        </Routes>
+        <>
+          <Headerguest />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/detailproduct" element={<Detailproduct />} />
+          </Routes>
+        </>
       )}
     </Router>
   );

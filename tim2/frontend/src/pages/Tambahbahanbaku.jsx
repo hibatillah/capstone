@@ -15,7 +15,7 @@ const Tambahbahanbaku = () => {
                     <input type="text" name='stock' id='stock' placeholder='Stok' className='w-full bg-transparent px-4 py-2 focus:outline-none' />
                 </div>
                 <div className='grid grid-cols-2 gap-4 items-center mt-3'>
-                    <p>Harg Satuan</p>
+                    <p>Harga Satuan</p>
                     <input type="text" name='harga' id='harga' placeholder='Harga Satuan' className='w-full bg-transparent px-4 py-2 focus:outline-none' />
                 </div>
                 <div className='grid grid-cols-2 gap-4 items-center mt-3'>
