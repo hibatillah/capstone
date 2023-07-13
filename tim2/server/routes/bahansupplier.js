@@ -8,10 +8,10 @@ recordRoutes.use(express.urlencoded({
 }));
 
 // menampilkan data
-recordRoutes.route("/bahanbaku").get(function (req, res) {
+recordRoutes.route("/bahansupplier").get(function (req, res) {
   let db_connect = dbo.getDb("capstone");
   db_connect
-    .collection("bahanbaku")
+    .collection("bahansupplier")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
@@ -26,7 +26,7 @@ recordRoutes.route("/bahanbaku").get(function (req, res) {
 });
 
 // menampilkan data by id
-recordRoutes.route("/bahanbaku/:id").get(function (req, res) {
+recordRoutes.route("/bahansupplier/:id").get(function (req, res) {
   let db_connect = dbo.getDb("capstone");
   let myquery = {
     _id: new ObjectedId(req.params.id)
@@ -46,18 +46,17 @@ recordRoutes.route("/bahanbaku/:id").get(function (req, res) {
 });
 
 // menambahkan data
-recordRoutes.route("/bahanbaku/add").post(function (req, res) {
+recordRoutes.route("/bahansupplier/add").post(function (req, res) {
   let db_connect = dbo.getDb("capstone");
   let myObj = {
+      kodeproduk: req.body.kodeproduk,
       nama: req.body.nama,
-      supplier: req.body.supplier,
+      hargasatuan: req.body.hargasatuan,
       stok: req.body.stok,
-      minimum: req.body.minimum,
-      satuan: req.body.satuan,
       status: req.body.status
   };
   db_connect
-    .collection("bahanbaku")
+    .collection("bahansupplier")
     .insertOne(myObj, function (err, result) {
       if (err) throw err;
       res.json(result);
@@ -71,23 +70,22 @@ recordRoutes.route("/bahanbaku/add").post(function (req, res) {
 });
 
 // mengupdate data
-recordRoutes.route("/bahanbaku/update/:id").put(function (req, res) {
+recordRoutes.route("/bahansupplier/update/:id").put(function (req, res) {
   let db_connect = dbo.getDb("capstone");
   let myquery = {
     _id: new ObjectedId(req.params.id)
   };
   let newValues = {
     $set: {
-      nama: req.body.nama,
-      supplier: req.body.supplier,
-      stok: req.body.stok,
-      minimum: req.body.minimum,
-      satuan: req.body.satuan,
-      status: req.body.status
+        kodeproduk: req.body.kodeproduk,
+        nama: req.body.nama,
+        hargasatuan: req.body.hargasatuan,
+        stok: req.body.stok,
+        status: req.body.status
     },
   };
   db_connect
-    .collection("bahanbaku")
+    .collection("bahansupplier")
     .updateOne(myquery, newValues, function (err, result) {
       if (err) throw err;
       console.log("Data bahan baku berhasil diupdate");
@@ -103,13 +101,13 @@ recordRoutes.route("/bahanbaku/update/:id").put(function (req, res) {
 });
 
 // menghapus data
-recordRoutes.route("/bahanbaku/delete/:id").delete(function (req, res) {
+recordRoutes.route("/bahansupplier/delete/:id").delete(function (req, res) {
   let db_connect = dbo.getDb("capstone");
   let myquery = {
     _id: new ObjectedId(req.params.id)
   };
   db_connect
-    .collection("bahanbaku")
+    .collection("bahansupplier")
     .deleteOne(myquery, function (err, result) {
       if (err) throw err;
       console.log("Data bahan baku berhasil dihapus");

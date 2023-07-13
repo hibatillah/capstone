@@ -2,13 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="flex justify-between px-5 py-2">
-      <div>
-        <p className="text-2xl text-[#280559] font-bold">Dashboard</p>
-        <p className="text-sm  text-slate-600">
-          View all status from the dashbaord
-        </p>
-      </div>
+    <div className="flex justify-end px-5 py-2">
       <div className="flex gap-3 items-center">
         <div className="text-slate-600">
           <svg

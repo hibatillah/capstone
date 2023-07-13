@@ -45,10 +45,13 @@ recordRoutes.route("/product/:id").get(function (req, res) {
 recordRoutes.route("/product/add").post(function (req, res) {
   let db_connect = dbo.getDb("capstone");
   let myObj = {
-    name: req.body.name,
+    nama: req.body.nama,
     desc: req.body.desc,
-    qty: req.body.qty,
-    price: req.body.price,
+    harga: req.body.harga,
+    stok: req.body.stok,
+    komposisi: req.body.komposisi,
+    minimum: req.body.minimum,
+    status: req.body.status,
   };
   db_connect
     .collection("product")
@@ -70,10 +73,13 @@ recordRoutes.route("/product/update/:id").put(function (req, res) {
   let myquery = { _id: new ObjectedId(req.params.id) };
   let newValues = {
     $set: {
-        name: req.body.name,
-        desc: req.body.desc,
-        qty: req.body.qty,
-        price: req.body.price,
+      nama: req.body.nama,
+      desc: req.body.desc,
+      harga: req.body.harga,
+      stok: req.body.stok,
+      komposisi: req.body.komposisi,
+      minimum: req.body.minimum,
+      status: req.body.status,
     },
   };
   db_connect

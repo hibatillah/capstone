@@ -49,11 +49,10 @@ recordRoutes.route("/supplier/:id").get(function (req, res) {
 recordRoutes.route("/supplier/add").post(function (req, res) {
     let db_connect = dbo.getDb("capstone");
     let myObj = {
-        name: req.body.name,
-        alamat: req.body.alamat,
-        email: req.body.email,
+        nama: req.body.nama,
         nohp: req.body.nohp,
-        stokbahan: req.stokbahan,
+        stokbahan: req.body.stokbahan,
+        status: req.body.status,
     };
     db_connect
         .collection("supplier")
@@ -77,11 +76,10 @@ recordRoutes.route("/supplier/update/:id").put(function (req, res) {
     };
     let newValues = {
         $set: {
-            name: req.body.name,
-            alamat: req.body.alamat,
-            email: req.body.email,
+            nama: req.body.nama,
             nohp: req.body.nohp,
-            jstokbahan: req.jstokbahan,
+            stokbahan: req.body.stokbahan,
+            status: req.body.status,
         },
     };
     db_connect

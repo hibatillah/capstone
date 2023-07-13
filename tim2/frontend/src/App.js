@@ -31,6 +31,8 @@ import Editproduct from "./pages/Editproduct";
 import Editbahanbaku from "./pages/Editbahanbaku";
 import Edittransaksi from "./pages/Edittransaksi";
 import Editsupplier from "./pages/Editsupplier";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   const [isLogin, setIsLogin] = React.useState(true);
@@ -44,10 +46,10 @@ function App() {
     <Router>
       {!isLogin ? (
         <>
-          {/* <Routes>
+          <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
-          </Routes> */}
+          </Routes>
         </>
       ) : user === "admin" ? (
         <div className="w-full h-screen flex">

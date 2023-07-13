@@ -25,7 +25,12 @@ app.listen(port, ()=>{
 // app.use(require("./routes/record"));
 const product = require("./routes/product");
 const bahanbaku = require("./routes/bahanbaku");
+const bahansupplier = require("./routes/bahansupplier");
+// const customer = require("./routes/customer");
+const riwayatadmin = require("./routes/riwayatadmin");
+const supplier = require("./routes/supplier");
+const user = require("./routes/user");
 
 
 
-app.use([product,bahanbaku]);
+app.use([product,bahanbaku,bahansupplier,riwayatadmin,supplier,user]);

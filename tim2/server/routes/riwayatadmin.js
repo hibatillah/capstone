@@ -8,10 +8,10 @@ recordRoutes.use(express.urlencoded({
 }));
 
 // menampilkan data
-recordRoutes.route("/bahanbaku").get(function (req, res) {
+recordRoutes.route("/riwayatadmin").get(function (req, res) {
   let db_connect = dbo.getDb("capstone");
   db_connect
-    .collection("bahanbaku")
+    .collection("riwayatadmin")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
@@ -19,106 +19,108 @@ recordRoutes.route("/bahanbaku").get(function (req, res) {
     })
     .then((data) => {
       res.json({
-        message: "Data bahan baku berhasil ditampilkan",
+        message: "Data riwayat admin berhasil ditampilkan",
         data: data,
       });
     });
 });
 
 // menampilkan data by id
-recordRoutes.route("/bahanbaku/:id").get(function (req, res) {
+recordRoutes.route("/riwayatadmin/:id").get(function (req, res) {
   let db_connect = dbo.getDb("capstone");
   let myquery = {
     _id: new ObjectedId(req.params.id)
   };
   db_connect
-    .collection("bahanbaku")
+    .collection("riwayatadmin")
     .findOne(myquery, function (err, result) {
       if (err) throw err;
       res.json(result);
     })
     .then((data) => {
       res.json({
-        message: "Data bahan baku berhasil ditampilkan",
+        message: "Data riwayat admin berhasil ditampilkan",
         data: data,
       });
     });
 });
 
 // menambahkan data
-recordRoutes.route("/bahanbaku/add").post(function (req, res) {
+recordRoutes.route("/riwayatadmin/add").post(function (req, res) {
   let db_connect = dbo.getDb("capstone");
   let myObj = {
-      nama: req.body.nama,
-      supplier: req.body.supplier,
-      stok: req.body.stok,
-      minimum: req.body.minimum,
-      satuan: req.body.satuan,
+      idinvoices: req.body.idinvoices,
+      tanggal: req.body.tanggal,
+      namapembeli: req.body.namapembeli,
+      nohp: req.body.nohp,
+      produk: req.body.produk,
+      amount: req.body.amount,
       status: req.body.status
   };
   db_connect
-    .collection("bahanbaku")
+    .collection("riwayatadmin")
     .insertOne(myObj, function (err, result) {
       if (err) throw err;
       res.json(result);
     })
     .then(() => {
       res.json({
-        message: "Data bahan baku berhasil ditambahkan",
+        message: "Data riwayat admin berhasil ditambahkan",
         data: myObj,
       });
     });
 });
 
 // mengupdate data
-recordRoutes.route("/bahanbaku/update/:id").put(function (req, res) {
+recordRoutes.route("/riwayatadmin/update/:id").put(function (req, res) {
   let db_connect = dbo.getDb("capstone");
   let myquery = {
     _id: new ObjectedId(req.params.id)
   };
   let newValues = {
     $set: {
-      nama: req.body.nama,
-      supplier: req.body.supplier,
-      stok: req.body.stok,
-      minimum: req.body.minimum,
-      satuan: req.body.satuan,
-      status: req.body.status
+        idinvoices: req.body.idinvoices,
+        tanggal: req.body.tanggal,
+        namapembeli: req.body.namapembeli,
+        nohp: req.body.nohp,
+        produk: req.body.produk,
+        amount: req.body.amount,
+        status: req.body.status
     },
   };
   db_connect
-    .collection("bahanbaku")
+    .collection("riwayatadmin")
     .updateOne(myquery, newValues, function (err, result) {
       if (err) throw err;
-      console.log("Data bahan baku berhasil diupdate");
+      console.log("Data riwayat admin berhasil diupdate");
       res.json(result);
     })
     .then(() => {
-      console.log("Data bahan baku berhasil diupdate");
+      console.log("Data riwayat admin berhasil diupdate");
       res.json({
-        message: "Data bahan baku berhasil diupdate",
+        message: "Data riwayat admin berhasil diupdate",
         data: newValues,
       });
     });
 });
 
 // menghapus data
-recordRoutes.route("/bahanbaku/delete/:id").delete(function (req, res) {
+recordRoutes.route("/riwayatadmin/delete/:id").delete(function (req, res) {
   let db_connect = dbo.getDb("capstone");
   let myquery = {
     _id: new ObjectedId(req.params.id)
   };
   db_connect
-    .collection("bahanbaku")
+    .collection("riwayatadmin")
     .deleteOne(myquery, function (err, result) {
       if (err) throw err;
-      console.log("Data bahan baku berhasil dihapus");
+      console.log("Data riwayat admin berhasil dihapus");
       res.json(result);
     })
     .then((data) => {
-      console.log("Data bahan baku berhasil dihapus");
+      console.log("Data riwayat admin berhasil dihapus");
       res.json({
-        message: "Data bahan baku berhasil dihapus",
+        message: "Data riwayat admin berhasil dihapus",
         data: data,
       });
     });
