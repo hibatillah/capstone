@@ -39,7 +39,7 @@ function App() {
   const handleUser = (id, name, role) => setUser({
     id: id,
     name: name,
-    role: role``
+    role: role,
   });
 
   return (
@@ -57,7 +57,7 @@ function App() {
           <div className="flex-auto h-screen overflow-y-scroll bg-[#f5f5f5]">
             <HeaderAdmin user={user} />
             <Routes>
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/" element={<Dashboard />} />
               <Route path="/pesanan" element={<Pesanan />} />
               <Route path="/bahanbakuadmin" element={<BahanbakuAdmin />} />
               <Route path="/historypenjualan" element={<Historypenjualan />} />
@@ -72,7 +72,7 @@ function App() {
             <HeaderSupplier user={user} />
             <Routes>
               <Route
-                path="/dashboard-supplier"
+                path="/"
                 element={<DashboardSupplier />}
               />
               <Route path="/bahanbaku" element={<BahanBaku />} />

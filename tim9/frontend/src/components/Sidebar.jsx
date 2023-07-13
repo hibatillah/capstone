@@ -2,17 +2,18 @@ import React from "react";
 import DashboardIcon from '../assets/img/darhboard.png'
 import Logo from '../assets/img/logo.png'
 import { NavLink } from "react-router-dom";
+
 const Sidebar = ({user}) => {
   const Menu = {
     admin: [
-      ["Dashboard", "/dashboard"],
+      ["Dashboard", "/"],
       ["Product", "/product"],
-      ["Pesanan Bahan Baku", "/pesanan"],
+      ["Pesanan Bahan", "/pesanan"],
       ["Bahan Baku", "/bahanbakuadmin"],
       ["History Penjualan", "/historypenjualan"],
     ],
     supplier: [
-      ["Dashboard", "/dashboard-supplier"],
+      ["Dashboard", "/"],
       ["Bahan Baku", "/bahanbaku"],
       ["Orderan", "/orderan"],
     ],
@@ -21,7 +22,7 @@ const Sidebar = ({user}) => {
     <div className="bg-[#a9752a] flex-none flex flex-col items-center w-[15%] h-screen px-5 py-20">
       <img src={Logo} alt="" className="w-[100%]" />
       <ul className="flex flex-col gap-3 mt-20">
-        {Menu[user].map(([name, path], i) => (
+        {Menu[user.role].map(([name, path], i) => (
           <li key={i}>
             <NavLink
               to={path}
@@ -30,12 +31,12 @@ const Sidebar = ({user}) => {
               }
             >
               <div className="flex gap-3 items-center text-white">
-                {user === "admin"
+                {user.role === "admin"
                   ? (() => {
                       switch (name) {
                         case "Dashboard":
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
-                        case "Pesanan Bahan Baku":
+                        case "Pesanan Bahan":
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
                         case "Bahan Baku":
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
@@ -55,6 +56,8 @@ const Sidebar = ({user}) => {
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
                         case "Orderan":
                           return <img src={DashboardIcon} alt="" className="w-5 h-5" />
+                        default:
+                          return null;
                       }
                     })()}
                 <span>{name}</span>

@@ -1,7 +1,7 @@
 import React from "react";
 import Foto from "../assets/img/Foto1.png";
 import { GetData } from "../components/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const User = () => {
   const { users } = GetData("http://localhost:5000/user");
@@ -10,6 +10,7 @@ const User = () => {
 };
 
 const Login = ({ handleLogin, handleUser }) => {
+  const navigate = useNavigate()
   const dataUser = User();
 
   const handleSubmit = (event) => {
@@ -29,9 +30,10 @@ const Login = ({ handleLogin, handleUser }) => {
         (item) => item.email === data.email && item.password === data.password
       );
       handleLogin(true);
-      handleUser(user._id, user.name, user.role);
+      handleUser(user._id, user.username, user.role);
       console.log("login success");
       alert("login success");
+      navigate('/')
     } else {
       alert("email atau password salah")
     }
@@ -55,7 +57,7 @@ const Login = ({ handleLogin, handleUser }) => {
           </div>
           <form onSubmit={handleSubmit} className="mt-16 space-y-4">
             <input
-              type="text"
+              type="email"
               id="email"
               name="email"
               required
@@ -63,7 +65,7 @@ const Login = ({ handleLogin, handleUser }) => {
               className="px-3 py-2 border-b w-full focus:outline-none"
             />
             <input
-              type="text"
+              type="password"
               id="password"
               name="password"
               required
@@ -71,7 +73,7 @@ const Login = ({ handleLogin, handleUser }) => {
               className="px-3 py-2 border-b w-full focus:outline-none mt-3"
             />
             <div className="w-full rounded-lg bg-[#ff9666] mt-7 py-3 flex justify-center">
-              <Link className="px-4 text-white">Sign In</Link>
+              <button type="submit" className="px-4 text-white">Sign In</button>
             </div>
           </form>
         </div>
