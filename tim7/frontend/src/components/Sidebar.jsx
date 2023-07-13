@@ -33,7 +33,7 @@ const Sidebar = () => {
             Stock
           </li>
         </NavLink>
-        <NavLink to={"/pendatapan"}>
+        {/* <NavLink to={"/pendatapan"}>
           <li className="flex gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ const Sidebar = () => {
             </svg>
             Pendatapan
           </li>
-        </NavLink>
+        </NavLink> */}
       </ul>
     </div>
   );

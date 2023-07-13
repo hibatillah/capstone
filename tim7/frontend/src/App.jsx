@@ -15,11 +15,11 @@ import { Login } from "./pages/Login";
 import Signup from "./pages/Signup";
 function App() {
   // login state
-  const [isLogin, setIsLogin] = React.useState(false);
+  const [isLogin, setIsLogin] = React.useState(true);
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
-  const [user, setUser] = React.useState("customer");
+  const [user, setUser] = React.useState("admin");
   const handleUser = (id) => setUser(id);
   return (
     <Router>
