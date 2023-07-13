@@ -4,7 +4,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 
 import Topbar from "./scenes/global/Topbar";
-import Sidebar from "./scenes/global/Sidebar";
+import Sidebar from "./components/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import DashboardSupplier from "./scenes/dashboard/Supplier";
 import Produk from "./scenes/produk";
@@ -13,6 +13,7 @@ import { Home, Header, About } from "./scenes/guest";
 import Product from "./scenes/guest/Product";
 import Detailproduct from "./scenes/guest/Detailproduct";
 import Supplier from "./scenes/supplier";
+import Sidebaradmin from "./components/Sidebaradmin";
 // import Invoices from "./scenes/Invoices";
 // import Contacts from "./scenes/contats";
 // import Bar from "./scenes/bar";
@@ -41,9 +42,9 @@ function App() {
               {/* <Login /> */}
             </>
           ) : (user === "admin" ? (
-            <div className="flex">
-              <Sidebar />
-              <main className="content">
+            <div className="flex h-screen">
+              <Sidebaradmin />
+              <main className="flex-auto">
                 <Topbar />
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
