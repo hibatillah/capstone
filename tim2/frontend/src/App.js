@@ -33,13 +33,15 @@ import Edittransaksi from "./pages/Edittransaksi";
 import Editsupplier from "./pages/Editsupplier";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Pesanbahanbaku from "./pages/Pesanbahanbaku";
+import Pesananmasuksupplier from "./pages/Pesananmasuksupplier";
 
 function App() {
   const [isLogin, setIsLogin] = React.useState(true);
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
-  const [user, setUser] = React.useState("admin");
+  const [user, setUser] = React.useState("supplier");
   const handleUser = (id) => setUser(id);
 
   return (
@@ -71,6 +73,7 @@ function App() {
               <Route path="/editsupplier" element={<Editsupplier />} />
               <Route path="/tambahsupplier" element={<Tambahsupplier />} />
               <Route path="/riwayat" element={<Riwayat />} />
+              <Route path="/pesanbahanbaku" element={<Pesanbahanbaku />} />
             </Routes>
           </div>
         </div>
@@ -87,6 +90,7 @@ function App() {
               <Route path="/tambahbahanbakusupplier" element={<Tambahbahanbakusupplier />} />
               <Route path="/editbahanbakusupplier" element={<Editbahanbakusupplier />} />
               <Route path="/riwayatsupplier" element={<Riwayatsupplier />} />
+              <Route path="/pesananmasuk" element={<Pesananmasuksupplier />} />
             </Routes>
           </div>
         </div>

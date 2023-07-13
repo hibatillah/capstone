@@ -10,6 +10,7 @@ const Bahanbakusupplier = () => {
   const databahanbaku = Bahanbaku();
   return (
     <div className="px-10 py-3">
+      <p className="text-xl font-bold text-center py-3">Stock Bahan Baku</p>
       <div className=" bg-white rounded-lg h-screen px-5">
         <div className="flex justify-end mt-3 ">
           <Link className="px-4 py-2 bg-[#280559] mt-4 text-white rounded-lg flex gap-4" to={"/tambahbahanbakusupplier"}>

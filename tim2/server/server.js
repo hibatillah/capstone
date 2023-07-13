@@ -30,7 +30,8 @@ const bahansupplier = require("./routes/bahansupplier");
 const riwayatadmin = require("./routes/riwayatadmin");
 const supplier = require("./routes/supplier");
 const user = require("./routes/user");
+const pesanbahan = require("./routes/pesanbahan");
 
 
 
-app.use([product,bahanbaku,bahansupplier,riwayatadmin,supplier,user]);
+app.use([product,bahanbaku,bahansupplier,riwayatadmin,supplier,user,pesanbahan,supplier]);

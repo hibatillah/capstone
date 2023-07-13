@@ -32,7 +32,6 @@ const Product = () => {
         <table className="w-full table-auto">
           <thead>
             <tr>
-              <th>Kode Produk</th>
               <th>Nama</th>
               <th>Harga Satuan</th>
               <th>Stock</th>
@@ -43,7 +42,6 @@ const Product = () => {
           <tbody>
             {dataproduk?.data.map((item, i) => (
               <tr>
-                <td>{i}</td>
                 <td>{item.nama ?? "-"}</td>
                 <td>{item.harga ?? 0}</td>
                 <td>{item.stok ?? "-"}</td>

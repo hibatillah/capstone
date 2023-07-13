@@ -115,6 +115,7 @@ const Sidebar = () => {
             Riwayat
           </li>
         </NavLink>
+        <div>Log out</div>
       </ul>
     </div>
   );

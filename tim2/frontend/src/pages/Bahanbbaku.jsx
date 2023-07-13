@@ -10,7 +10,7 @@ const BahanBaku = () => {
 
   return (
     <div className="px-10">
-      <div className="flex justify-end my-5 ">
+      <div className="flex justify-end gap-5 my-5 ">
         <Link
           className="px-4 py-2 bg-[#280559] mt-4 text-white rounded-lg flex gap-4"
           to={"/tambahbahanbaku"}
@@ -25,12 +25,25 @@ const BahanBaku = () => {
           </svg>
           Tambah Bahan Baku
         </Link>
+        <Link
+          className="px-4 py-2 bg-[#280559] mt-4 text-white rounded-lg flex gap-4"
+          to={"/pesanbahanbaku"}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            class="bi bi-plus-circle-fill w-6 h-6"
+            viewBox="0 0 16 16"
+          >
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+          </svg>
+          Pesan Bahan Baku
+        </Link>
       </div>
       <div className="bg-white aspect-[4/1] px-10 py-10">
         <table className="table-auto w-full">
           <thead>
             <tr>
-              <th>Kode Bahan Baku</th>
               <th>Nama</th>
               <th>Supplier</th>
               <th>Stock</th>
@@ -41,7 +54,6 @@ const BahanBaku = () => {
           <tbody>
             {databahanbaku?.data.map((item, i) => (
               <tr>
-                <td>{i}</td>
                 <td>{item.nama ?? "-"}</td>
                 <td>{item.supplier ?? "-"}</td>
                 <td>{item.stok ?? "-"}</td>
