@@ -16,9 +16,9 @@ recordRoutes.route("/user").get(function (req, res) {
       res.json(result);
     })
     .then((data) => {
-      console.log('user berhasil ditampilkan')
+      console.log('customer berhasil ditampilkan')
       res.json({
-        message: "user berhasil ditampilkan",
+        message: "customer berhasil ditampilkan",
         data: data,
       });
     });
@@ -35,9 +35,9 @@ recordRoutes.route("/user/:id").get(function (req, res) {
       res.json(result);
     })
     .then((data) => {
-      console.log('user berhasil ditampilkan')
+      console.log('customer berhasil ditampilkan')
       res.json({
-        message: "user berhasil ditampilkan",
+        message: "customer berhasil ditampilkan",
         data: data,
       });
     });
@@ -59,9 +59,9 @@ recordRoutes.route("/user/add").post(function (req, res) {
       res.json(result);
     })
     .then(() => {
-      console.log('user berhasil ditambahkan')
+      console.log('customer berhasil ditambahkan')
       res.json({
-        message: "user berhasil ditambahkan",
+        message: "customer berhasil ditambahkan",
         data: myObj,
       });
     });
@@ -83,11 +83,11 @@ recordRoutes.route("/user/update/:id").put(function (req, res) {
     .collection("user")
     .updateOne(myquery, newValues, function (err, result) {
       if (err) throw err;
-      console.log("berhasil update user");
+      console.log("berhasil update customer");
       res.json(result);
     })
     .then(() => {
-      console.log("berhasil update user");
+      console.log("berhasil update customer");
       res.json({
         message: "Data berhasil diupdate",
         data: newValues,
@@ -103,13 +103,13 @@ recordRoutes.route("/user/delete/:id").delete(function (req, res) {
     .collection("user")
     .deleteOne(myquery, function (err, result) {
       if (err) throw err;
-      console.log("user berhasil dihapus");
+      console.log("customer berhasil dihapus");
       res.json(result);
     })
     .then((data) => {
-      console.log("user berhasil dihapus");
+      console.log("customer berhasil dihapus");
       res.json({
-        message: "user berhasil dihapus",
+        message: "customer berhasil dihapus",
         data: data,
       });
     });

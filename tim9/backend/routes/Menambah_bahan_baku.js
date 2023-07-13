@@ -47,9 +47,9 @@ recordRoutes.route("/admin/:id").get(function (req, res) {
 recordRoutes.route("/admin/add").post(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myObj = {
-    nama_admin: req.body.nama_admin,
-    gmail: req.body.gmail,
-    password: req.body.password,
+    nama_bahan_baku: req.body.nama_bahan_baku,
+    nama_supplier: req.body.nama_supplier,
+    Total_pesanan: req.body.Total_pesanan,
   };
   db_connect
     .collection("admin")
@@ -72,9 +72,9 @@ recordRoutes.route("/admin/update/:id").put(function (req, res) {
   let myquery = { _id: new ObjectId(req.params.id) };
   let newValues = {
     $set: {
-      nama_admin: req.body.nama_admin,
-      gmail: req.body.gmail,
-      password: req.body.password,
+        nama_bahan_baku: req.body.nama_bahan_baku,
+        nama_supplier: req.body.nama_supplier,
+        Total_pesanan: req.body.Total_pesanan,
     },
   };
   db_connect

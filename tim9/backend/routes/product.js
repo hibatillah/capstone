@@ -6,10 +6,10 @@ const ObjectId = require("mongodb").ObjectId;
 recordRoutes.use(express.urlencoded({ extended: true }));
 
 // menampilkan data
-recordRoutes.route("/admin").get(function (req, res) {
+recordRoutes.route("/product").get(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   db_connect
-    .collection("admin")
+    .collection("product")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
@@ -25,11 +25,11 @@ recordRoutes.route("/admin").get(function (req, res) {
 });
 
 // menampilkan data by id
-recordRoutes.route("/admin/:id").get(function (req, res) {
+recordRoutes.route("/product/:id").get(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   db_connect
-    .collection("admin")
+    .collection("product")
     .findOne(myquery, function (err, result) {
       if (err) throw err;
       res.json(result);
@@ -44,15 +44,16 @@ recordRoutes.route("/admin/:id").get(function (req, res) {
 });
 
 // menambahkan data
-recordRoutes.route("/admin/add").post(function (req, res) {
+recordRoutes.route("/product/add").post(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myObj = {
-    nama_admin: req.body.nama_admin,
-    gmail: req.body.gmail,
-    password: req.body.password,
+    nama_produk: req.body.nama_produk,
+    harga_satuan: req.body.harga_satuan,
+    stok: req.body.stock,
+    deskripsi: req.body.deskripsi,
   };
   db_connect
-    .collection("admin")
+    .collection("product")
     .insertOne(myObj, function (err, result) {
       if (err) throw err;
       res.json(result);
@@ -67,18 +68,19 @@ recordRoutes.route("/admin/add").post(function (req, res) {
 });
 
 // mengupdate data
-recordRoutes.route("/admin/update/:id").put(function (req, res) {
+recordRoutes.route("/product/update/:id").put(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   let newValues = {
     $set: {
-      nama_admin: req.body.nama_admin,
-      gmail: req.body.gmail,
-      password: req.body.password,
+        nama_produk: req.body.nama_produk,
+        harga_satuan: req.body.harga_satuan,
+        stok: req.body.stock,
+        deskripsi: req.body.deskripsi,
     },
   };
   db_connect
-    .collection("admin")
+    .collection("product")
     .updateOne(myquery, newValues, function (err, result) {
       if (err) throw err;
       console.log("berhasil update customer");
@@ -94,11 +96,11 @@ recordRoutes.route("/admin/update/:id").put(function (req, res) {
 });
 
 // menghapus data
-recordRoutes.route("/admin/delete/:id").delete(function (req, res) {
+recordRoutes.route("/product/delete/:id").delete(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   db_connect
-    .collection("admin")
+    .collection("product")
     .deleteOne(myquery, function (err, result) {
       if (err) throw err;
       console.log("customer berhasil dihapus");

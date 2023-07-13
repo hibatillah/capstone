@@ -1,8 +1,15 @@
 import React from "react";
 import { Failed } from "../../components/Status";
+import { GetData } from "../../components/api";
+
+const Bahan = () => {
+  const { users } = GetData("http://localhost:5000/bahan");
+  console.log(users);
+  return users;
+};
 
 const Pesanan = () => {
-  const data = [];
+  const data = Bahan();
   return (
     <div className="px-7">
       <p className="text-xl text-darkblue py-2 font-bold">Pemesanan Bahan</p>
@@ -44,21 +51,19 @@ const Pesanan = () => {
         <table className="table-auto w-full">
           <thead>
             <tr>
-              <th>Nama Supplier</th>
-              <th>Tanggal</th>
-              <th>Bahan Baku</th>
-              <th>Status</th>
-              <th></th>
+              <th>Nama Bahan Baku</th>
+              <th>Stok</th>
+              <th>Minimum</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
-            {data?.map((item) => (
+            {data?.data?.map((item) => (
               <tr>
-                <td>{item.namasupplier ?? "-"}</td>
-                <td>{item.tanggal ?? "-"}</td>
-                <td>{item.bahanbaku ?? "-"}</td>
-                <td>{item.status ?? "-"}</td>
-                <td>{}</td>
+                <td>{item.nama_bahan ?? "-"}</td>
+                <td>{item.stok ?? "-"}</td>
+                <td>{item.minimum ?? "-"}</td>
+                <td>aksi</td>
               </tr>
             )) ?? <tr>Produk Tidak tersedia</tr>}
           </tbody>

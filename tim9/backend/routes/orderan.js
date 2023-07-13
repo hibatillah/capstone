@@ -6,10 +6,10 @@ const ObjectId = require("mongodb").ObjectId;
 recordRoutes.use(express.urlencoded({ extended: true }));
 
 // menampilkan data
-recordRoutes.route("/admin").get(function (req, res) {
+recordRoutes.route("/orderan").get(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   db_connect
-    .collection("admin")
+    .collection("orderan")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
@@ -25,11 +25,11 @@ recordRoutes.route("/admin").get(function (req, res) {
 });
 
 // menampilkan data by id
-recordRoutes.route("/admin/:id").get(function (req, res) {
+recordRoutes.route("/orderan/:id").get(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   db_connect
-    .collection("admin")
+    .collection("orderan")
     .findOne(myquery, function (err, result) {
       if (err) throw err;
       res.json(result);
@@ -44,15 +44,17 @@ recordRoutes.route("/admin/:id").get(function (req, res) {
 });
 
 // menambahkan data
-recordRoutes.route("/admin/add").post(function (req, res) {
+recordRoutes.route("/orderan/add").post(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myObj = {
     nama_admin: req.body.nama_admin,
-    gmail: req.body.gmail,
-    password: req.body.password,
+    tanggal_pemesanan: req.body.tanggal_pemesanan,
+    qty: req.body.qty,
+    stock: req.body.stock,
+    status: req.body.status,
   };
   db_connect
-    .collection("admin")
+    .collection("orderan")
     .insertOne(myObj, function (err, result) {
       if (err) throw err;
       res.json(result);
@@ -67,18 +69,20 @@ recordRoutes.route("/admin/add").post(function (req, res) {
 });
 
 // mengupdate data
-recordRoutes.route("/admin/update/:id").put(function (req, res) {
+recordRoutes.route("/orderan/update/:id").put(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   let newValues = {
     $set: {
       nama_admin: req.body.nama_admin,
-      gmail: req.body.gmail,
-      password: req.body.password,
+      tanggal_pemesanan: req.body.tanggal_pemesanan,
+      qty: req.body.qty,
+      stock: req.body.stock,
+      status: req.body.status
     },
   };
   db_connect
-    .collection("admin")
+    .collection("orderan")
     .updateOne(myquery, newValues, function (err, result) {
       if (err) throw err;
       console.log("berhasil update customer");
@@ -94,11 +98,11 @@ recordRoutes.route("/admin/update/:id").put(function (req, res) {
 });
 
 // menghapus data
-recordRoutes.route("/admin/delete/:id").delete(function (req, res) {
+recordRoutes.route("/orderan/delete/:id").delete(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   db_connect
-    .collection("admin")
+    .collection("orderan")
     .deleteOne(myquery, function (err, result) {
       if (err) throw err;
       console.log("customer berhasil dihapus");

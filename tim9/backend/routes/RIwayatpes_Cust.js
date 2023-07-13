@@ -6,88 +6,94 @@ const ObjectId = require("mongodb").ObjectId;
 recordRoutes.use(express.urlencoded({ extended: true }));
 
 // menampilkan data
-recordRoutes.route("/pesanbahan").get(function (req, res) {
+recordRoutes.route("/admin").get(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   db_connect
-    .collection("pesanbahan")
+    .collection("admin")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
       res.json(result);
     })
     .then((data) => {
-      console.log('pesanbahan berhasil ditampilkan')
+      console.log('customer berhasil ditampilkan')
       res.json({
-        message: "pesanbahan berhasil ditampilkan",
+        message: "customer berhasil ditampilkan",
         data: data,
       });
     });
 });
 
 // menampilkan data by id
-recordRoutes.route("/pesanbahan/:id").get(function (req, res) {
+recordRoutes.route("/admin/:id").get(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   db_connect
-    .collection("pesanbahan")
+    .collection("admin")
     .findOne(myquery, function (err, result) {
       if (err) throw err;
       res.json(result);
     })
     .then((data) => {
-      console.log('pesanbahan berhasil ditampilkan')
+      console.log('customer berhasil ditampilkan')
       res.json({
-        message: "pesanbahan berhasil ditampilkan",
+        message: "customer berhasil ditampilkan",
         data: data,
       });
     });
 });
 
 // menambahkan data
-recordRoutes.route("/pesanbahan/add").post(function (req, res) {
+recordRoutes.route("/admin/add").post(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myObj = {
-    name: req.body.name,
-    kategori: req.body.kategori,
-    harga: req.body.harga,
-    pesanbahan: req.body.pesanbahan,
+    nama: req.body.nama,
+    no_transaksi: req.body.no_transaksi,
+    nama_produk: req.body.nama_produk,
+    jumlah: req.body.jumlah,
+    total_harga: req.body.total_harga,
+    tanggal_pemesanan: req.body.tanggal_pemesanan,
+    metode_pembayaran: req.body.metode_pembayaran,
   };
   db_connect
-    .collection("pesanbahan")
+    .collection("admin")
     .insertOne(myObj, function (err, result) {
       if (err) throw err;
       res.json(result);
     })
     .then(() => {
-      console.log('pesanbahan berhasil ditambahkan')
+      console.log('customer berhasil ditambahkan')
       res.json({
-        message: "pesanbahan berhasil ditambahkan",
+        message: "customer berhasil ditambahkan",
         data: myObj,
       });
     });
 });
 
 // mengupdate data
-recordRoutes.route("/pesanbahan/update/:id").put(function (req, res) {
+recordRoutes.route("/admin/update/:id").put(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   let newValues = {
     $set: {
-      name: req.body.name,
-      kategori: req.body.kategori,
-      harga: req.body.harga,
-      pesanbahan: req.body.pesanbahan,
+        nama: req.body.nama,
+        no_transaksi: req.body.no_transaksi,
+        nama_produk: req.body.nama_produk,
+        jumlah: req.body.jumlah,
+        total_harga: req.body.total_harga,
+        tanggal_pemesanan: req.body.tanggal_pemesanan,
+        metode_pembayaran: req.body.metode_pembayaran,
     },
   };
   db_connect
-    .collection("pesanbahan")
+    .collection("admin")
     .updateOne(myquery, newValues, function (err, result) {
       if (err) throw err;
-      console.log("berhasil update pesanbahan");
+      console.log("berhasil update customer");
       res.json(result);
     })
     .then(() => {
-      console.log("berhasil update pesanbahan");
+      console.log("berhasil update customer");
       res.json({
         message: "Data berhasil diupdate",
         data: newValues,
@@ -96,20 +102,20 @@ recordRoutes.route("/pesanbahan/update/:id").put(function (req, res) {
 });
 
 // menghapus data
-recordRoutes.route("/pesanbahan/delete/:id").delete(function (req, res) {
+recordRoutes.route("/admin/delete/:id").delete(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   db_connect
-    .collection("pesanbahan")
+    .collection("admin")
     .deleteOne(myquery, function (err, result) {
       if (err) throw err;
-      console.log("pesanbahan berhasil dihapus");
+      console.log("customer berhasil dihapus");
       res.json(result);
     })
     .then((data) => {
-      console.log("pesanbahan berhasil dihapus");
+      console.log("customer berhasil dihapus");
       res.json({
-        message: "pesanbahan berhasil dihapus",
+        message: "customer berhasil dihapus",
         data: data,
       });
     });
