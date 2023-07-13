@@ -27,14 +27,14 @@ import BahanbakuAdmin from "./pages/admin/BahanbakuAdmin";
 import Historypenjualan from "./pages/admin/Historypenjualan";
 function App() {
   // login state
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
   const [user, setUser] = React.useState({
     id: "",
-    name: "shiren",
-    role: "guest",
+    name: "",
+    role: "",
   });
   const handleUser = (id, name, role) => setUser({
     id: id,
