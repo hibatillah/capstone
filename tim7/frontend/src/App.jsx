@@ -19,7 +19,7 @@ function App() {
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
-  const [user, setUser] = React.useState("admin");
+  const [user, setUser] = React.useState("supplier");
   const handleUser = (id) => setUser(id);
   return (
     <Router>
