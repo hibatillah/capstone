@@ -39,7 +39,7 @@ function App() {
   const handleUser = (id, name, role) => setUser({
     id: id,
     name: name,
-    role: role
+    role: role``
   });
 
   return (
