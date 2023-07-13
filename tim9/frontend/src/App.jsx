@@ -27,27 +27,35 @@ import BahanbakuAdmin from "./pages/admin/BahanbakuAdmin";
 import Historypenjualan from "./pages/admin/Historypenjualan";
 function App() {
   // login state
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
   const handleLogin = () => setIsLogin(!isLogin);
 
   // user state
-  const [user, setUser] = React.useState("admin");
-  const handleUser = (id) => setUser(id);
+  const [user, setUser] = React.useState({
+    id: "",
+    name: "",
+    role: "",
+  });
+  const handleUser = (id, name, role) => setUser({
+    id: id,
+    name: name,
+    role: role
+  });
 
   return (
     <Router>
       {!isLogin ? (
         <>
           <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Login handleUser={handleUser} handleLogin={handleLogin} />} />
             <Route path="/register" element={<Register />} />
           </Routes>
         </>
-      ) : user === "admin" ? (
+      ) : user.role === "admin" ? (
         <div className="w-full h-screen flex">
           <Sidebar user={user} />
           <div className="flex-auto h-screen overflow-y-scroll bg-[#f5f5f5]">
-            <HeaderAdmin />
+            <HeaderAdmin user={user} />
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/pesanan" element={<Pesanan />} />
@@ -57,11 +65,11 @@ function App() {
             </Routes>
           </div>
         </div>
-      ) : user === "supplier" ? (
+      ) : user.role === "supplier" ? (
         <div className="w-full h-screen flex">
           <Sidebar user={user} />
           <div className="flex-auto h-screen overflow-y-scroll bg-[#f5f5f5]">
-            <HeaderSupplier />
+            <HeaderSupplier user={user} />
             <Routes>
               <Route
                 path="/dashboard-supplier"
