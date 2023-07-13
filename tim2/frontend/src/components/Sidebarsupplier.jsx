@@ -36,7 +36,7 @@ const Sidebarsupplier = () => {
             Dashboard
           </li>
         </NavLink>
-        <NavLink to={"/pengiriman"}>
+        {/* <NavLink to={"/pengiriman"}>
           <li className="flex gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ const Sidebarsupplier = () => {
             </svg>
             Pengiriman
           </li>
-        </NavLink>
+        </NavLink> */}
         <NavLink to={"/bahanbakusupplier"}>
           <li className="flex gap-3">
             <svg
@@ -64,7 +64,7 @@ const Sidebarsupplier = () => {
             Stock Bahan
           </li>
         </NavLink>
-        <NavLink to={"/riwayatsupplier"}>
+        {/* <NavLink to={"/riwayatsupplier"}>
           <li className="flex gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ const Sidebarsupplier = () => {
             </svg>
             Riwayat
           </li>
-        </NavLink>
+        </NavLink> */}
       </ul>
     </div>
   );

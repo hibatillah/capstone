@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { GetData } from "../components/api";
 const Bahanbakusupplier = () => {
-  const data = []
+  const Bahanbaku = () => {
+    const { users } = GetData("http://localhost:5000/bahansupplier");
+    console.log(users);
+    return users;
+  };
+  const databahanbaku = Bahanbaku();
   return (
     <div className="px-10 py-3">
       <div className=" bg-white rounded-lg h-screen px-5">
@@ -30,12 +36,12 @@ const Bahanbakusupplier = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.map((item) => (
+            {databahanbaku?.data.map((item) => (
               <tr>
-                <td>{item.kode ?? "-"}</td>
+                <td>{item.kodeproduk}</td>
                 <td>{item.nama ?? "-"}</td>
                 <td>{item.harga ?? 0}</td>
-                <td>{item.stock ?? 0}</td>
+                <td>{item.stok ?? 0}</td>
                 <td>{item.status ?? 0}</td>
                 <td></td>
               </tr>

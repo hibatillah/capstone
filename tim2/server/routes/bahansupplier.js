@@ -51,7 +51,7 @@ recordRoutes.route("/bahansupplier/add").post(function (req, res) {
   let myObj = {
       kodeproduk: req.body.kodeproduk,
       nama: req.body.nama,
-      hargasatuan: req.body.hargasatuan,
+      harga: req.body.harga,
       stok: req.body.stok,
       status: req.body.status
   };

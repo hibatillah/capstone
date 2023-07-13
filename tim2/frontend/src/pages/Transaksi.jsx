@@ -13,7 +13,7 @@ const Transaksi = () => {
       <div className="flex justify-end my-5 ">
         <Link
           className="px-4 py-2 bg-[#280559] mt-4 text-white rounded-lg flex gap-4"
-          to={"/tambahriwayat"}
+          to={"/tambahtransaksi"}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,7 @@ const Transaksi = () => {
           >
             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
           </svg>
-          Tambah Riwayat
+          Tambah Transakis
         </Link>
       </div>
       <div className="bg-white aspect-[4/1] px-10 py-10">
@@ -51,7 +51,7 @@ const Transaksi = () => {
                 <td>{item.amount ?? "-"}</td>
                 <td>{item.status ?? "-"}</td>
                 <td>
-                  <Link to={`/editbahanbaku/${item._id}`}>
+                  <Link to={`/edittransaksi/${item._id}`}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
