@@ -3,7 +3,7 @@ import { Failed } from "../../components/Status";
 import { GetData } from "../../components/api";
 
 const Bahan = () => {
-  const { users } = GetData("http://localhost:5000/bahan");
+  const { users } = GetData("http://localhost:5000/bahan/beli");
   console.log(users);
   return users;
 };
@@ -12,7 +12,7 @@ const Pesanan = () => {
   const data = Bahan();
   return (
     <div className="px-7">
-      <p className="text-xl text-darkblue py-2 font-bold">Pemesanan Bahan</p>
+      <p className="text-xl text-darkblue py-2 font-bold">Bahan Baku</p>
       <div className="flex justify-between gap-5 mt-5">
         <div className="bg-white w-44 rounded-lg flex gap-2 px-4 items-center">
           <svg
@@ -53,16 +53,18 @@ const Pesanan = () => {
             <tr>
               <th>Nama Bahan Baku</th>
               <th>Stok</th>
-              <th>Minimum</th>
+              <th>Tanggal</th>
+              <th>Status</th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
             {data?.data?.map((item) => (
               <tr>
-                <td>{item.nama_bahan ?? "-"}</td>
-                <td>{item.stok ?? "-"}</td>
-                <td>{item.minimum ?? "-"}</td>
+                <td>{item.bahan ?? "-"}</td>
+                <td>{item.jumlah ?? "-"}</td>
+                <td>{item.tanggal ?? "-"}</td>
+                <td>{item.status ?? "-"}</td>
                 <td>aksi</td>
               </tr>
             )) ?? <tr>Produk Tidak tersedia</tr>}

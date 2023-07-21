@@ -5,6 +5,7 @@ import American from "../assets/img/american-express.png";
 import Amazon from "../assets/img/amazon.png";
 import Paypal from "../assets/img/paypal.png";
 import Apple from "../assets/img/apple-pay.png";
+import { Link } from "react-router-dom";
 const PaymentMethod = () => {
   return (
     <div className="border-l h-screen w-full px-3 py-2">
@@ -108,7 +109,7 @@ const PaymentMethod = () => {
       </div>
       <div className="flex justify-between p-4">
         <button className="border border-emerald-400 px-6 py-2 rounded-lg">Kembali</button>
-        <button className="bg-emerald-800 px-6 py-2 text-white rounded-lg">Konfrimasi</button>
+        <Link className="bg-emerald-800 px-6 py-2 text-white rounded-lg" to={'/berhasil'}>Konfrimasi</Link>
       </div>
     </div>
   );

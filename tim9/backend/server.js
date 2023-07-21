@@ -18,11 +18,12 @@ app.listen(port, () => {
 });
 
 // get routes
-// const admin = require("./routes/admin");
+const product = require("./routes/product");
 // const customer = require("./routes/customer");
-// const produk = require("./routes/produk");
+const belibahan = require("./routes/belibahan");
+const beliproduk = require("./routes/beliproduk");
 const user = require("./routes/user");
 const bahan = require("./routes/produk_bahan_baku");
 
 // use routes
-app.use([bahan, user]);
+app.use([bahan, user, product, belibahan, beliproduk]);

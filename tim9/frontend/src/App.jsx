@@ -25,6 +25,7 @@ import Register from "./pages/Register";
 import Orderan from "./pages/supplier/Orderan";
 import BahanbakuAdmin from "./pages/admin/BahanbakuAdmin";
 import Historypenjualan from "./pages/admin/Historypenjualan";
+import Berhasil from "./pages/customer/Berhasil";
 function App() {
   // login state
   const [isLogin, setIsLogin] = React.useState(false);
@@ -58,8 +59,8 @@ function App() {
             <HeaderAdmin user={user} />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/pesanan" element={<Pesanan />} />
-              <Route path="/bahanbakuadmin" element={<BahanbakuAdmin />} />
+              <Route path="/pesanan" element={<BahanbakuAdmin />} />
+              <Route path="/bahanbakuadmin" element={<Pesanan />} />
               <Route path="/historypenjualan" element={<Historypenjualan />} />
               <Route path="/product" element={<DataProduct />} />
             </Routes>
@@ -87,6 +88,7 @@ function App() {
           <Route path="/product" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/berhasil" element={<Berhasil />} />
           <Route path="/history" element={<History />} />
         </Routes>
       )}

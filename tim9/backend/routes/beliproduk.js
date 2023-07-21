@@ -6,10 +6,10 @@ const ObjectId = require("mongodb").ObjectId;
 recordRoutes.use(express.urlencoded({ extended: true }));
 
 // menampilkan data
-recordRoutes.route("/product").get(function (req, res) {
+recordRoutes.route("/produk/beli").get(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   db_connect
-    .collection("product")
+    .collection("beliproduk")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
@@ -25,11 +25,11 @@ recordRoutes.route("/product").get(function (req, res) {
 });
 
 // menampilkan data by id
-recordRoutes.route("/product/:id").get(function (req, res) {
+recordRoutes.route("/produk/beli/:id").get(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   db_connect
-    .collection("product")
+    .collection("beliproduk")
     .findOne(myquery, function (err, result) {
       if (err) throw err;
       res.json(result);
@@ -44,16 +44,17 @@ recordRoutes.route("/product/:id").get(function (req, res) {
 });
 
 // menambahkan data
-recordRoutes.route("/product/add").post(function (req, res) {
+recordRoutes.route("/produk/beli/add").post(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myObj = {
-    nama: req.body.nama,
-    minimum: req.body.minimum,
-    tersedia: req.body.tersedia,
-    komposisi: req.body.komposisi,
+    produk: req.body.produk,
+    customer: req.body.customer,
+    tanggal: req.body.tanggal,
+    status: req.body.status,
+    pembayaran: req.body.pembayaran,
   };
   db_connect
-    .collection("product")
+    .collection("beliproduk")
     .insertOne(myObj, function (err, result) {
       if (err) throw err;
       res.json(result);
@@ -68,19 +69,20 @@ recordRoutes.route("/product/add").post(function (req, res) {
 });
 
 // mengupdate data
-recordRoutes.route("/product/update/:id").put(function (req, res) {
+recordRoutes.route("/produk/beli/update/:id").put(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   let newValues = {
     $set: {
-      nama: req.body.nama,
-      minimum: req.body.minimum,
-      tersedia: req.body.tersedia,
-      komposisi: req.body.komposisi,
+        produk: req.body.produk,
+        customer: req.body.customer,
+        tanggal: req.body.tanggal,
+        status: req.body.status,
+        pembayaran: req.body.pembayaran,
     },
   };
   db_connect
-    .collection("product")
+    .collection("beliproduk")
     .updateOne(myquery, newValues, function (err, result) {
       if (err) throw err;
       console.log("berhasil update customer");
@@ -96,11 +98,11 @@ recordRoutes.route("/product/update/:id").put(function (req, res) {
 });
 
 // menghapus data
-recordRoutes.route("/product/delete/:id").delete(function (req, res) {
+recordRoutes.route("/produk/beli/delete/:id").delete(function (req, res) {
   let db_connect = dbo.getDb("menantea");
   let myquery = { _id: new ObjectId(req.params.id) };
   db_connect
-    .collection("product")
+    .collection("beliproduk")
     .deleteOne(myquery, function (err, result) {
       if (err) throw err;
       console.log("customer berhasil dihapus");
